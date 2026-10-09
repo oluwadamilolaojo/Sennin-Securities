@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Vendii Borrow: My loan</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&amp;display=swap">
+<style>
+body{margin:0;font-family:'Space Grotesk',system-ui,sans-serif;color:#17375A;background:#F5F7FA}
+a{color:#295D8F;text-decoration:none}a:hover{color:#17375A}
+.nav a{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:8px;color:#D6E4F0;font-size:14px;font-weight:500}
+.nav a:hover{background:#1F4A75;color:#fff}
+.nav a.on{background:#295D8F;color:#fff}
+.card{background:#fff;border:1px solid #D9DEE5;border-radius:12px;padding:20px}
+.tbl{width:100%;border-collapse:collapse;font-size:14px}
+.tbl th{text-align:left;font-weight:500;color:#5B6B7F;padding:8px 12px;border-bottom:1px solid #D9DEE5;font-size:12px;letter-spacing:.03em;text-transform:uppercase}
+.tbl td{padding:11px 12px;border-bottom:1px solid #EEF2F6;vertical-align:middle}
+.num{font-variant-numeric:tabular-nums;text-align:right}
+.muted{color:#5B6B7F}
+.pill{display:inline-block;padding:3px 10px;border-radius:999px;font-size:12px;font-weight:500;line-height:1.4}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 18px;border-radius:8px;font:inherit;font-weight:600;font-size:14px;cursor:pointer;border:1px solid transparent}
+.btn-p{background:#295D8F;color:#fff}.btn-p:hover{background:#1F4A75}
+.btn-o{background:#fff;color:#295D8F;border-color:#295D8F}.btn-o:hover{background:#EEF2F6}
+.btn-s{min-height:34px;padding:0 12px;font-size:13px}
+.inp{width:100%;box-sizing:border-box;height:46px;border:1px solid #D9DEE5;border-radius:8px;padding:0 14px;font:inherit;font-size:16px;color:#17375A;background:#fff}
+.row{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:10px 12px;background:#F5F7FA;border-radius:8px;font-size:14px}
+.up{color:#1F7A4D}.dn{color:#B3261E}
+</style>
+</helmet>
+
+<div style="display:flex;flex-wrap:wrap;min-height:1180px">
+
+<nav class="nav" style="flex:0 0 232px;background:#17375A;padding:24px 16px;display:flex;flex-direction:column;gap:4px;box-sizing:border-box">
+  <div style="display:flex;align-items:center;gap:10px;padding:4px 12px 24px">
+    <svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><circle cx="15" cy="15" r="15" fill="#C59F56"></circle><path d="M15 5 L19 15 L15 25 L11 15 Z" fill="#17375A"></path><circle cx="15" cy="15" r="2" fill="#C59F56"></circle></svg>
+    <span style="color:#fff;font-weight:700;font-size:20px">Vendii <span style="color:#C59F56">Borrow</span></span>
+  </div>
+  <a href="L-Start.dc.html">Check what you can borrow</a>
+  <a href="L-Build.dc.html">Build your loan</a>
+  <a href="L-Review.dc.html">Review and sign</a>
+  <a class="on" href="L-Dashboard.dc.html">My loan</a>
+  <a href="L-MarginCall.dc.html">Alert state (demo)</a>
+  <a href="L-LenderConsole.dc.html">Lender console</a>
+  <div style="flex:1 1 auto;min-height:120px"></div>
+  <div style="background:#1F4A75;border-radius:10px;padding:14px;color:#D6E4F0;font-size:12px;line-height:1.5">
+    <div style="color:#fff;font-weight:600;margin-bottom:4px">Who lends</div>
+    Loan provided by Trust Bank, arranged by Vendii. Lien registered at CSCS on 14 Oct 2026.
+  </div>
+  <a href="/Main.dc.html" style="font-size:13px;margin-top:8px">Back to Vendii Trading</a>
+  <a href="#chat" style="font-size:13px">Talk to us</a>
+</nav>
+
+<main style="flex:999 1 560px;min-width:0;display:flex;flex-direction:column;box-sizing:border-box">
+  <div style="display:flex;flex-wrap:wrap;align-items:center;gap:16px;padding:16px 32px;background:#fff;border-bottom:1px solid #D9DEE5">
+    <h1 style="margin:0;font-size:22px;font-weight:600;flex:1 1 auto">My loan · VBL-2026-00118</h1>
+    <span class="muted" style="font-size:13px">Collateral revalued today 14:35 WAT</span>
+    <a class="btn btn-o" href="#stmt">Download statement</a>
+  </div>
+
+  <div style="padding:28px 32px;display:flex;flex-direction:column;gap:20px">
+
+    <div style="display:grid;grid-template-columns:repeat(3, minmax(0, 1fr));gap:20px;align-items:stretch">
+      <div class="card" style="grid-column:span 2">
+        <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-start;gap:16px">
+          <div>
+            <div class="muted" style="font-size:13px">Loan health</div>
+            <div style="display:flex;align-items:baseline;gap:12px;margin-top:4px">
+              <span style="font-size:40px;font-weight:700;color:#1F7A4D">Healthy</span>
+              <span style="font-size:16px;font-variant-numeric:tabular-nums">loan is <strong>30.8%</strong> of your shares' value</span>
+            </div>
+          </div>
+          <div style="text-align:right;font-size:14px">
+            <div class="muted" style="font-size:12px">Your shares could fall</div>
+            <div style="font-size:24px;font-weight:700;color:#1F7A4D">57%</div>
+            <div class="muted" style="font-size:12px">before we'd ask you to act</div>
+          </div>
+        </div>
+        <div style="margin-top:18px;height:16px;border-radius:8px;background:#EEF2F6;position:relative;overflow:hidden">
+          <div style="position:absolute;left:0;top:0;bottom:0;width:62.5%;background:#DCEFE4"></div>
+          <div style="position:absolute;left:62.5%;top:0;bottom:0;width:8.9%;background:#FFF1D6"></div>
+          <div style="position:absolute;left:71.4%;top:0;bottom:0;right:0;background:#FDE2E0"></div>
+          <div style="position:absolute;left:0;top:0;bottom:0;width:30.8%;background:#1F7A4D;border-radius:8px"></div>
+        </div>
+        <div style="display:flex;justify-content:space-between;font-size:12px;margin-top:6px" class="muted"><span>0%</span><span>Warning 62.5%</span><span>Add cash or shares 71.4%</span><span>Shares sold 80%</span></div>
+        <div style="display:grid;grid-template-columns:repeat(4, minmax(0, 1fr));gap:14px;margin-top:20px;font-size:14px">
+          <div><div class="muted" style="font-size:12px">You still owe</div><div style="font-size:20px;font-weight:700;font-variant-numeric:tabular-nums">₦757,311</div></div>
+          <div><div class="muted" style="font-size:12px">Pledged shares worth</div><div style="font-size:20px;font-weight:700;font-variant-numeric:tabular-nums">₦2,458,900</div><div class="dn" style="font-size:12px">-4.3% since 14 Oct</div></div>
+          <div><div class="muted" style="font-size:12px">Next payment</div><div style="font-size:20px;font-weight:700;font-variant-numeric:tabular-nums">₦160,689</div><div class="muted" style="font-size:12px">14 Nov · direct debit GTBank ••4417</div></div>
+          <div><div class="muted" style="font-size:12px">Payments made</div><div style="font-size:20px;font-weight:700">1 of 6</div><div class="muted" style="font-size:12px">on time</div></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2 style="margin:0;font-size:17px;font-weight:600">Repay any time</h2>
+        <div class="muted" style="font-size:13px;margin-top:4px">No early repayment charge. Pay off today for <strong style="color:#17375A">₦761,844</strong> including interest to date.</div>
+        <label for="rp" style="position:absolute;left:-9999px">Amount to repay</label>
+        <input id="rp" class="inp" type="number" step="10000" value="200000" style="margin-top:14px">
+        <div style="display:flex;gap:8px;margin-top:8px;flex-wrap:wrap">
+          <button class="btn btn-o btn-s" type="button">₦100,000</button>
+          <button class="btn btn-o btn-s" type="button">Next instalment</button>
+          <button class="btn btn-o btn-s" type="button">Pay off everything</button>
+        </div>
+        <button class="btn btn-p" type="button" style="width:100%;margin-top:12px">Repay ₦200,000 by transfer</button>
+        <div class="muted" style="font-size:12px;margin-top:10px">Paying extra lowers your health bar and your interest. When the balance hits zero the CSCS lien lifts within 1 working day, automatically.</div>
+      </div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(3, minmax(0, 1fr));gap:20px;align-items:start">
+      <div class="card" style="grid-column:span 2;padding:0;overflow:hidden">
+        <div style="padding:18px 20px 10px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px">
+          <h2 style="margin:0;font-size:17px;font-weight:600">Pledged shares</h2>
+          <div style="display:flex;align-items:center;gap:10px;font-size:13px"><span class="muted">Which shares sell first if it comes to that</span><span class="pill" style="background:#EEF2F6;color:#5B6B7F">Phase 2</span></div>
+        </div>
+        <div style="overflow-x:auto">
+        <table class="tbl">
+          <thead><tr><th>Security</th><th class="num">Units pledged</th><th class="num">Price today</th><th class="num">Value</th><th class="num">Since pledge</th><th>Dividends</th><th>Status</th></tr></thead>
+          <tbody>
+            <tr><td><strong>MTNN</strong></td><td class="num">3,500</td><td class="num">₦258.00</td><td class="num">₦903,000</td><td class="num dn">-1.1%</td><td class="muted" style="font-size:13px">Next: Mar 2027</td><td><span class="pill" style="background:#D6E4F0;color:#17375A">Lien, Trust Bank</span></td></tr>
+            <tr><td><strong>DANGCEM</strong></td><td class="num">2,200</td><td class="num">₦428.00</td><td class="num">₦941,600</td><td class="num dn">-8.2%</td><td class="muted" style="font-size:13px">Next: Apr 2027</td><td><span class="pill" style="background:#D6E4F0;color:#17375A">Lien, Trust Bank</span></td></tr>
+            <tr><td><strong>GTCO</strong></td><td class="num">9,000</td><td class="num">₦68.26</td><td class="num">₦614,300</td><td class="num dn">-2.8%</td><td><span class="up" style="font-size:13px;font-weight:600">₦8,100 paid to you 30 Oct</span></td><td><span class="pill" style="background:#D6E4F0;color:#17375A">Lien, Trust Bank</span></td></tr>
+          </tbody>
+        </table>
+        </div>
+        <div style="padding:14px 20px;background:#F5F7FA;display:flex;flex-wrap:wrap;gap:12px;align-items:center;font-size:13px">
+          <span>Dividends on pledged shares keep coming to your bank.</span>
+          <span style="margin-left:auto;display:flex;gap:8px;align-items:center"><span class="muted">Use dividends to pay down the loan automatically</span><span class="pill" style="background:#EEF2F6;color:#5B6B7F">Phase 2</span></span>
+        </div>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:20px">
+        <div class="card">
+          <h2 style="margin:0;font-size:17px;font-weight:600">Messages we've sent you</h2>
+          <div style="margin-top:12px;display:flex;flex-direction:column;gap:8px;font-size:13px">
+            <div class="row"><span><strong>Collateral revalued</strong><div class="muted">Daily, 14:35 · app</div></span><span class="muted">Today</span></div>
+            <div class="row"><span><strong>Payment 1 of 6 received</strong><div class="muted">₦160,689 · SMS, email, app</div></span><span class="muted">14 Nov</span></div>
+            <div class="row"><span><strong>Loan paid out</strong><div class="muted">₦900,000 to GTBank ••4417 · SMS, WhatsApp, email</div></span><span class="muted">14 Oct</span></div>
+            <div class="row"><span><strong>Lien placed at CSCS</strong><div class="muted">3 securities · email</div></span><span class="muted">14 Oct</span></div>
+          </div>
+          <a href="#all" style="font-size:13px;display:inline-block;margin-top:10px">Full audit trail</a>
+        </div>
+
+        <div class="card">
+          <div style="display:flex;justify-content:space-between;align-items:center;gap:10px">
+            <h2 style="margin:0;font-size:15px;font-weight:600">Coming next</h2>
+          </div>
+          <div style="margin-top:10px;display:flex;flex-direction:column;gap:8px;font-size:13px">
+            <div class="row"><span>Stress test: what if my shares fall 20%?</span><span class="pill" style="background:#EEF2F6;color:#5B6B7F">Phase 2</span></div>
+            <div class="row"><span>Borrow more when your shares rise</span><span class="pill" style="background:#EEF2F6;color:#5B6B7F">Phase 2</span></div>
+            <div class="row"><span>Release some shares once the loan is small</span><span class="pill" style="background:#EEF2F6;color:#5B6B7F">Phase 2</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" style="padding:0;overflow:hidden">
+      <div style="padding:18px 20px 10px"><h2 style="margin:0;font-size:17px;font-weight:600">Repayment schedule</h2></div>
+      <div style="overflow-x:auto">
+      <table class="tbl">
+        <thead><tr><th>#</th><th>Date</th><th class="num">Payment</th><th class="num">Interest</th><th class="num">Principal</th><th class="num">Balance after</th><th>Status</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td>14 Nov 2026</td><td class="num">₦160,689</td><td class="num">₦18,000</td><td class="num">₦142,689</td><td class="num">₦757,311</td><td><span class="pill" style="background:#DCEFE4;color:#1F7A4D">Paid</span></td></tr>
+          <tr><td>2</td><td>14 Dec 2026</td><td class="num">₦160,689</td><td class="num">₦15,146</td><td class="num">₦145,543</td><td class="num">₦611,768</td><td><span class="pill" style="background:#EEF2F6;color:#5B6B7F">Scheduled</span></td></tr>
+          <tr><td>3</td><td>14 Jan 2027</td><td class="num">₦160,689</td><td class="num">₦12,235</td><td class="num">₦148,454</td><td class="num">₦463,314</td><td><span class="pill" style="background:#EEF2F6;color:#5B6B7F">Scheduled</span></td></tr>
+          <tr><td>4</td><td>14 Feb 2027</td><td class="num">₦160,689</td><td class="num">₦9,266</td><td class="num">₦151,423</td><td class="num">₦311,891</td><td><span class="pill" style="background:#EEF2F6;color:#5B6B7F">Scheduled</span></td></tr>
+          <tr><td>5</td><td>14 Mar 2027</td><td class="num">₦160,689</td><td class="num">₦6,238</td><td class="num">₦154,451</td><td class="num">₦157,440</td><td><span class="pill" style="background:#EEF2F6;color:#5B6B7F">Scheduled</span></td></tr>
+          <tr><td>6</td><td>14 Apr 2027</td><td class="num">₦160,589</td><td class="num">₦3,149</td><td class="num">₦157,440</td><td class="num">₦0</td><td><span class="pill" style="background:#EEF2F6;color:#5B6B7F">Lien lifts</span></td></tr>
+        </tbody>
+      </table>
+      </div>
+    </div>
+
+  </div>
+</main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1180}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

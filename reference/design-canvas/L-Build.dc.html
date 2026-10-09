@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Vendii Borrow: Build your loan</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&amp;display=swap">
+<style>
+body{margin:0;font-family:'Space Grotesk',system-ui,sans-serif;color:#17375A;background:#F5F7FA}
+a{color:#295D8F;text-decoration:none}a:hover{color:#17375A}
+.nav a{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:8px;color:#D6E4F0;font-size:14px;font-weight:500}
+.nav a:hover{background:#1F4A75;color:#fff}
+.nav a.on{background:#295D8F;color:#fff}
+.card{background:#fff;border:1px solid #D9DEE5;border-radius:12px;padding:20px}
+.muted{color:#5B6B7F}
+.pill{display:inline-block;padding:3px 10px;border-radius:999px;font-size:12px;font-weight:500;line-height:1.4}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 18px;border-radius:8px;font:inherit;font-weight:600;font-size:14px;cursor:pointer;border:1px solid transparent}
+.btn-p{background:#295D8F;color:#fff}.btn-p:hover{background:#1F4A75}
+.btn-g{background:#C59F56;color:#17375A}.btn-g:hover{background:#B08C45}
+.lbl{display:block;font-size:12px;color:#5B6B7F;margin-bottom:6px;font-weight:500}
+.seg{display:flex;border:1px solid #D9DEE5;border-radius:8px;overflow:hidden}
+.seg button{flex:1;min-height:44px;border:0;background:#fff;font:inherit;font-size:14px;font-weight:500;color:#5B6B7F;cursor:pointer}
+.seg button.on{background:#17375A;color:#fff}
+.coll{display:flex;align-items:center;gap:14px;padding:12px 14px;border:1px solid #D9DEE5;border-radius:10px;background:#fff;width:100%;box-sizing:border-box;font:inherit;color:#17375A;text-align:left;cursor:pointer;min-height:44px}
+.coll.on{border-color:#17375A;box-shadow:inset 0 0 0 1px #17375A;background:#F5F7FA}
+.box{width:20px;height:20px;border-radius:5px;border:2px solid #5B6B7F;flex:none;display:flex;align-items:center;justify-content:center;color:#fff;font-size:12px;font-weight:700}
+.box.on{background:#17375A;border-color:#17375A}
+.row{display:flex;justify-content:space-between;font-size:14px;padding:4px 0;gap:10px}
+.num{font-variant-numeric:tabular-nums;text-align:right}
+.opt{flex:1;border:1px solid #D9DEE5;border-radius:10px;padding:12px 14px;text-align:left;background:#fff;font:inherit;color:#17375A;cursor:pointer;min-height:44px}
+.opt.on{border-color:#17375A;background:#F5F7FA;box-shadow:inset 0 0 0 1px #17375A}
+input[type=range]{width:100%;accent-color:#295D8F}
+</style>
+</helmet>
+
+<div style="display:flex;flex-wrap:wrap;min-height:1180px">
+
+<nav class="nav" style="flex:0 0 232px;background:#17375A;padding:24px 16px;display:flex;flex-direction:column;gap:4px;box-sizing:border-box">
+  <div style="display:flex;align-items:center;gap:10px;padding:4px 12px 24px">
+    <svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><circle cx="15" cy="15" r="15" fill="#C59F56"></circle><path d="M15 5 L19 15 L15 25 L11 15 Z" fill="#17375A"></path><circle cx="15" cy="15" r="2" fill="#C59F56"></circle></svg>
+    <span style="color:#fff;font-weight:700;font-size:20px">Vendii <span style="color:#C59F56">Borrow</span></span>
+  </div>
+  <a href="L-Start.dc.html">Check what you can borrow</a>
+  <a class="on" href="L-Build.dc.html">Build your loan</a>
+  <a href="L-Review.dc.html">Review and sign</a>
+  <a href="L-Dashboard.dc.html">My loan</a>
+  <a href="L-MarginCall.dc.html">Alert state (demo)</a>
+  <a href="L-LenderConsole.dc.html">Lender console</a>
+  <div style="flex:1 1 auto;min-height:120px"></div>
+  <div style="background:#1F4A75;border-radius:10px;padding:14px;color:#D6E4F0;font-size:12px;line-height:1.5">
+    <div style="color:#fff;font-weight:600;margin-bottom:4px">Who lends</div>
+    Loans are provided by Trust Bank. Vendii arranges them. Your shares stay in your name at CSCS with a lien in the bank's favour until you repay.
+  </div>
+  <a href="/Main.dc.html" style="font-size:13px;margin-top:8px">Back to Vendii Trading</a>
+  <a href="#chat" style="font-size:13px">Talk to us</a>
+</nav>
+
+<main style="flex:999 1 560px;min-width:0;display:flex;flex-direction:column;box-sizing:border-box">
+  <div style="display:flex;flex-wrap:wrap;align-items:center;gap:16px;padding:16px 32px;background:#fff;border-bottom:1px solid #D9DEE5">
+    <h1 style="margin:0;font-size:22px;font-weight:600;flex:1 1 auto">Build your loan</h1>
+    <span class="pill" style="background:#DCEFE4;color:#1F7A4D">Draft saved</span>
+    <span class="muted" style="font-size:13px">Step 1 of 2</span>
+  </div>
+
+  <div style="padding:28px 32px;display:grid;grid-template-columns:repeat(3, minmax(0, 1fr));gap:20px;align-items:start">
+
+    <div style="grid-column:span 2;display:flex;flex-direction:column;gap:20px;min-width:0">
+
+      <div class="card">
+        <div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap">
+          <h2 style="margin:0;font-size:17px;font-weight:600">1. Which shares back the loan?</h2>
+          <span class="muted" style="font-size:13px">Pick any mix. Unpicked shares stay free to sell.</span>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(2, minmax(0, 1fr));gap:10px;margin-top:14px">
+          <button type="button" class="{{c0}}" onClick="{{t0}}"><div class="{{b0}}">✓</div><div style="flex:1"><div style="font-weight:600">MTNN <span class="muted" style="font-weight:400">3,500 units</span></div><div class="muted" style="font-size:12px">₦913,500 · 55% advance · High liquidity</div></div><div class="num" style="font-size:13px">up to ₦502,425</div></button>
+          <button type="button" class="{{c1}}" onClick="{{t1}}"><div class="{{b1}}">✓</div><div style="flex:1"><div style="font-weight:600">DANGCEM <span class="muted" style="font-weight:400">2,200 units</span></div><div class="muted" style="font-size:12px">₦1,025,200 · 45% advance · Medium</div></div><div class="num" style="font-size:13px">up to ₦461,340</div></button>
+          <button type="button" class="{{c2}}" onClick="{{t2}}"><div class="{{b2}}">✓</div><div style="flex:1"><div style="font-weight:600">GTCO <span class="muted" style="font-weight:400">9,000 units</span></div><div class="muted" style="font-size:12px">₦631,800 · 50% advance · High</div></div><div class="num" style="font-size:13px">up to ₦315,900</div></button>
+          <button type="button" class="{{c3}}" onClick="{{t3}}"><div class="{{b3}}">✓</div><div style="flex:1"><div style="font-weight:600">ZENITHBANK <span class="muted" style="font-weight:400">12,000 units</span></div><div class="muted" style="font-size:12px">₦565,200 · 50% advance · High</div></div><div class="num" style="font-size:13px">up to ₦282,600</div></button>
+          <button type="button" class="{{c4}}" onClick="{{t4}}"><div class="{{b4}}">✓</div><div style="flex:1"><div style="font-weight:600">STANBICETF30 <span class="muted" style="font-weight:400">4,000 units</span></div><div class="muted" style="font-size:12px">₦704,000 · 45% advance · Medium</div></div><div class="num" style="font-size:13px">up to ₦316,800</div></button>
+        </div>
+        <sc-if value="{{concWarn}}" hint-placeholder-val="{{ false }}">
+          <div style="margin-top:12px;padding:10px 14px;background:#FFF1D6;color:#8A5A00;border-radius:8px;font-size:13px">{{concText}}</div>
+        </sc-if>
+      </div>
+
+      <div class="card">
+        <h2 style="margin:0;font-size:17px;font-weight:600">2. How much, and for how long?</h2>
+        <div style="margin-top:14px">
+          <div style="display:flex;justify-content:space-between;align-items:baseline">
+            <label class="lbl" for="amt">Loan amount</label>
+            <span class="muted" style="font-size:12px">Max ₦{{maxFmt}} with the shares you picked</span>
+          </div>
+          <div style="font-size:34px;font-weight:700;font-variant-numeric:tabular-nums">₦{{amountFmt}}</div>
+          <input id="amt" type="range" min="100000" max="{{maxLoan}}" step="10000" value="{{amount}}" onInput="{{setAmount}}">
+          <div style="display:flex;justify-content:space-between;font-size:12px" class="muted"><span>₦100,000</span><span>₦{{maxFmt}}</span></div>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(2, minmax(0, 1fr));gap:16px;margin-top:18px">
+          <div>
+            <span class="lbl">Tenor</span>
+            <div class="seg" role="group" aria-label="Tenor">
+              <button type="button" class="{{m3}}" onClick="{{set3}}">3 months</button>
+              <button type="button" class="{{m6}}" onClick="{{set6}}">6 months</button>
+              <button type="button" class="{{m9}}" onClick="{{set9}}">9 months</button>
+              <button type="button" class="{{m12}}" onClick="{{set12}}">12 months</button>
+            </div>
+          </div>
+          <div>
+            <span class="lbl">How you repay</span>
+            <div class="seg" role="group" aria-label="Repayment">
+              <button type="button" class="{{pA}}" onClick="{{setA}}">Monthly, equal payments</button>
+              <button type="button" class="{{pB}}" onClick="{{setB}}">Interest monthly, principal at the end</button>
+            </div>
+          </div>
+        </div>
+        <div style="margin-top:12px;display:flex;justify-content:space-between;align-items:center;padding:10px 14px;background:#F5F7FA;border-radius:8px;font-size:13px">
+          <span>A credit line you draw from as you need it</span>
+          <span class="pill" style="background:#EEF2F6;color:#5B6B7F">Phase 2</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2 style="margin:0;font-size:17px;font-weight:600">3. What is the money for?</h2>
+        <div class="muted" style="font-size:13px;margin-top:4px">Required by the bank. This loan can't be used to buy shares or other securities.</div>
+        <div style="display:flex;gap:10px;margin-top:14px;flex-wrap:wrap">
+          <button type="button" class="{{u0}}" onClick="{{setU0}}">Personal: school fees, rent, medical, family</button>
+          <button type="button" class="{{u1}}" onClick="{{setU1}}">Business: working capital, stock, equipment</button>
+          <button type="button" class="{{u2}}" onClick="{{setU2}}">Property or a large purchase</button>
+        </div>
+        <label style="display:flex;gap:10px;align-items:flex-start;font-size:14px;margin-top:14px;padding:12px 14px;background:#F5F7FA;border-radius:8px">
+          <input type="checkbox" style="width:18px;height:18px;margin:2px 0 0">
+          <span>I confirm I won't use this loan to buy shares, bonds or other securities, or to repay another loan secured on securities.</span>
+        </label>
+      </div>
+
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:20px">
+      <div class="card" style="background:#17375A;border-color:#17375A;color:#fff">
+        <div style="font-size:13px;color:#C59F56;font-weight:600">Your loan, all in</div>
+        <div style="font-size:34px;font-weight:700;margin-top:4px;font-variant-numeric:tabular-nums">₦{{amountFmt}}</div>
+        <div style="font-size:13px;color:#D6E4F0">for {{tenor}} months at 24% a year</div>
+        <div style="margin-top:14px;border-top:1px solid #2F5F8A;padding-top:12px;display:flex;flex-direction:column;gap:4px">
+          <div class="row"><span style="color:#D6E4F0">{{payLabel}}</span><span class="num" style="font-weight:700">₦{{payFmt}}</span></div>
+          <sc-if value="{{bullet}}" hint-placeholder-val="{{ false }}"><div class="row"><span style="color:#D6E4F0">Final payment (month {{tenor}})</span><span class="num">₦{{finalFmt}}</span></div></sc-if>
+          <div class="row"><span style="color:#D6E4F0">Total interest</span><span class="num">₦{{intFmt}}</span></div>
+          <div class="row"><span style="color:#D6E4F0">Arrangement fee (1%)</span><span class="num">₦{{feeFmt}}</span></div>
+          <div class="row"><span style="color:#D6E4F0">CSCS lien fee</span><span class="num">₦{{lienFmt}}</span></div>
+          <div class="row" style="border-top:1px solid #2F5F8A;margin-top:6px;padding-top:8px"><span>Total you repay</span><span class="num" style="font-weight:700">₦{{totalFmt}}</span></div>
+          <div class="row"><span style="color:#D6E4F0">Effective annual cost (APR)</span><span class="num">{{aprFmt}}%</span></div>
+          <div class="row"><span style="color:#D6E4F0">Early repayment</span><span class="num">Free, any day</span></div>
+        </div>
+        <div style="font-size:12px;color:#D6E4F0;margin-top:10px">Sample pricing. Final terms come from Trust Bank on the key facts sheet.</div>
+      </div>
+
+      <div class="card">
+        <div style="display:flex;justify-content:space-between;align-items:baseline">
+          <h2 style="margin:0;font-size:15px;font-weight:600">Loan health at the start</h2>
+          <span class="num" style="font-weight:700">LTV {{ltvFmt}}%</span>
+        </div>
+        <div style="margin-top:10px;height:12px;border-radius:6px;background:#EEF2F6;position:relative;overflow:hidden">
+          <div style="position:absolute;left:0;top:0;bottom:0;width:62.5%;background:#DCEFE4"></div>
+          <div style="position:absolute;left:62.5%;top:0;bottom:0;width:8.9%;background:#FFF1D6"></div>
+          <div style="position:absolute;left:71.4%;top:0;bottom:0;right:0;background:#FDE2E0"></div>
+          <div style="position:absolute;left:0;top:0;bottom:0;width:{{ltvBar}};background:#17375A;border-radius:6px"></div>
+        </div>
+        <div style="display:flex;justify-content:space-between;font-size:11px;margin-top:4px" class="muted"><span>Healthy</span><span>Warning at 62.5%</span><span>Call at 71.4%</span></div>
+        <div style="margin-top:14px;font-size:14px;line-height:1.6">
+          <strong>Worked example.</strong> Your pledged shares are worth ₦{{collFmt}} today. If they fall <strong>{{fallFmt}}%</strong> to ₦{{callValFmt}}, we ask you to add about <strong>₦{{cureFmt}}</strong> in cash or shares within 3 working days. If they fall {{liqFallFmt}}% and nothing is added, enough shares are sold to bring the loan back to a safe level, and you keep the rest.
+        </div>
+      </div>
+
+      <a class="btn btn-g" href="L-Review.dc.html" style="width:100%;box-sizing:border-box;min-height:50px;font-size:16px">Continue to review and sign</a>
+    </div>
+
+  </div>
+</main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1180}}'>
+class Component extends DCLogic {
+  constructor(p){ super(p); this.state = { sel:[true,true,true,false,false], amount:900000, tenor:6, plan:'A', use:0 }; }
+  fmt(n){ return Math.round(n).toLocaleString('en-NG'); }
+  renderVals(){
+    const s=this.state;
+    const C=[{n:'MTNN',v:913500,r:.55},{n:'DANGCEM',v:1025200,r:.45},{n:'GTCO',v:631800,r:.5},{n:'ZENITHBANK',v:565200,r:.5},{n:'STANBICETF30',v:704000,r:.45}];
+    let coll=0,maxLoan=0,big=null;
+    C.forEach((c,i)=>{ if(s.sel[i]){ coll+=c.v; maxLoan+=c.v*c.r; if(!big||c.v>big.v) big=c; } });
+    maxLoan=Math.max(100000,Math.floor(maxLoan/10000)*10000);
+    const amount=Math.min(Number(s.amount)||100000,maxLoan);
+    const rate=0.24, m=s.tenor, r=rate/12;
+    const pmt = r>0 ? amount*r/(1-Math.pow(1+r,-m)) : amount/m;
+    const intA = pmt*m-amount, intB = amount*r*m;
+    const bullet = s.plan==='B';
+    const interest = bullet?intB:intA;
+    const fee = amount*0.01, lien=2500;
+    const total = amount+interest+fee+lien;
+    const apr = (interest+fee+lien)/amount/(m/12)*100;
+    const ltv = coll>0 ? amount/coll*100 : 0;
+    const callVal = amount/0.714, liqVal = amount/0.8;
+    const fall = coll>0 ? Math.max(0,(1-callVal/coll)*100) : 0;
+    const liqFall = coll>0 ? Math.max(0,(1-liqVal/coll)*100) : 0;
+    const cure = Math.max(0, amount - callVal*0.625);
+    const share = big&&coll>0 ? big.v/coll : 0;
+    const cls=(i)=>'coll'+(s.sel[i]?' on':''), box=(i)=>'box'+(s.sel[i]?' on':'');
+    const tog=(i)=>()=>{ const a=s.sel.slice(); a[i]=!a[i]; if(a.some(x=>x)) this.setState({sel:a}); };
+    return {
+      c0:cls(0),c1:cls(1),c2:cls(2),c3:cls(3),c4:cls(4), b0:box(0),b1:box(1),b2:box(2),b3:box(3),b4:box(4),
+      t0:tog(0),t1:tog(1),t2:tog(2),t3:tog(3),t4:tog(4),
+      concWarn: share>0.4 && s.sel.filter(x=>x).length>0,
+      concText: big ? (big.n+' is '+Math.round(share*100)+'% of your collateral. No single stock may back more than 40% of the loan, so add another stock or lower the amount.') : '',
+      maxLoan:maxLoan, maxFmt:this.fmt(maxLoan), amount:amount, amountFmt:this.fmt(amount),
+      setAmount:(e)=>this.setState({amount:Number(e.target.value)}),
+      m3:s.tenor===3?'on':'', m6:s.tenor===6?'on':'', m9:s.tenor===9?'on':'', m12:s.tenor===12?'on':'',
+      set3:()=>this.setState({tenor:3}),set6:()=>this.setState({tenor:6}),set9:()=>this.setState({tenor:9}),set12:()=>this.setState({tenor:12}),
+      pA:s.plan==='A'?'on':'', pB:s.plan==='B'?'on':'', setA:()=>this.setState({plan:'A'}), setB:()=>this.setState({plan:'B'}),
+      u0:'opt'+(s.use===0?' on':''),u1:'opt'+(s.use===1?' on':''),u2:'opt'+(s.use===2?' on':''),
+      setU0:()=>this.setState({use:0}),setU1:()=>this.setState({use:1}),setU2:()=>this.setState({use:2}),
+      tenor:m, bullet:bullet,
+      payLabel: bullet?'Monthly interest':'Monthly payment',
+      payFmt: this.fmt(bullet?amount*r:pmt), finalFmt:this.fmt(amount+amount*r),
+      intFmt:this.fmt(interest), feeFmt:this.fmt(fee), lienFmt:this.fmt(lien), totalFmt:this.fmt(total), aprFmt:apr.toFixed(1),
+      ltvFmt:ltv.toFixed(1), ltvBar:Math.min(100,ltv).toFixed(1)+'%',
+      collFmt:this.fmt(coll), fallFmt:fall.toFixed(0), callValFmt:this.fmt(callVal), cureFmt:this.fmt(cure), liqFallFmt:liqFall.toFixed(0)
+    };
+  }
+}
+</script>
+</body>
+</html>

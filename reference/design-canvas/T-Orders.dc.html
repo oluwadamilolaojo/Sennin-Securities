@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Vendii Trading: Orders and activity</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&amp;display=swap">
+<style>
+body{margin:0;font-family:'Space Grotesk',system-ui,sans-serif;color:#17375A;background:#F5F7FA}
+a{color:#295D8F;text-decoration:none}a:hover{color:#17375A}
+.nav a{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:8px;color:#D6E4F0;font-size:14px;font-weight:500}
+.nav a:hover{background:#1F4A75;color:#fff}
+.nav a.on{background:#295D8F;color:#fff}
+.card{background:#fff;border:1px solid #D9DEE5;border-radius:12px;padding:20px}
+.tbl{width:100%;border-collapse:collapse;font-size:14px}
+.tbl th{text-align:left;font-weight:500;color:#5B6B7F;padding:8px 12px;border-bottom:1px solid #D9DEE5;font-size:12px;letter-spacing:.03em;text-transform:uppercase}
+.tbl td{padding:12px;border-bottom:1px solid #EEF2F6;vertical-align:middle}
+.num{font-variant-numeric:tabular-nums;text-align:right}
+.muted{color:#5B6B7F}
+.pill{display:inline-block;padding:3px 10px;border-radius:999px;font-size:12px;font-weight:500;line-height:1.4}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 18px;border-radius:8px;font:inherit;font-weight:600;font-size:14px;cursor:pointer;border:1px solid transparent}
+.btn-p{background:#295D8F;color:#fff}.btn-p:hover{background:#1F4A75}
+.btn-o{background:#fff;color:#295D8F;border-color:#295D8F}.btn-o:hover{background:#EEF2F6}
+.btn-s{min-height:34px;padding:0 12px;font-size:13px}
+.step{flex:1;display:flex;flex-direction:column;align-items:center;text-align:center;gap:8px;font-size:12px;position:relative}
+.dot{width:28px;height:28px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700}
+.up{color:#1F7A4D}.dn{color:#B3261E}
+.tab{padding:10px 2px;font-size:14px;font-weight:500;color:#5B6B7F;border-bottom:2px solid transparent}
+.tab.on{color:#17375A;border-color:#C59F56}
+</style>
+</helmet>
+
+<div style="display:flex;flex-wrap:wrap;min-height:1180px">
+
+<nav class="nav" style="flex:0 0 232px;background:#17375A;padding:24px 16px;display:flex;flex-direction:column;gap:4px;box-sizing:border-box">
+  <div style="display:flex;align-items:center;gap:10px;padding:4px 12px 24px">
+    <svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><circle cx="15" cy="15" r="15" fill="#C59F56"></circle><path d="M15 5 L19 15 L15 25 L11 15 Z" fill="#17375A"></path><circle cx="15" cy="15" r="2" fill="#C59F56"></circle></svg>
+    <span style="color:#fff;font-weight:700;font-size:20px">Vendii</span>
+  </div>
+  <a href="Main.dc.html">Home</a>
+  <a href="T-Stock.dc.html">Markets</a>
+  <a class="on" href="T-Orders.dc.html">Orders</a>
+  <a href="T-FixedIncome.dc.html">Fixed income</a>
+  <a href="T-Dividends.dc.html">Dividends</a>
+  <a href="T-Funding.dc.html">Funding</a>
+  <a href="/L-Start.dc.html">Borrow against shares</a>
+  <div style="flex:1 1 auto;min-height:120px"></div>
+  <div style="background:#1F4A75;border-radius:10px;padding:14px;color:#D6E4F0;font-size:12px;line-height:1.5">
+    <div style="color:#fff;font-weight:600;margin-bottom:4px">Your shares, your name</div>
+    Held at CSCS under CHN 2210045. Sponsoring broker: Trust Bank Securities.
+  </div>
+  <a href="#help" style="font-size:13px;margin-top:8px">Help centre</a>
+  <a href="#chat" style="font-size:13px">Talk to us</a>
+</nav>
+
+<main style="flex:999 1 560px;min-width:0;display:flex;flex-direction:column;box-sizing:border-box">
+  <div style="display:flex;flex-wrap:wrap;align-items:center;gap:16px;padding:16px 32px;background:#fff;border-bottom:1px solid #D9DEE5">
+    <h1 style="margin:0;font-size:22px;font-weight:600;flex:1 1 auto">Orders and activity</h1>
+    <div style="display:flex;align-items:center;gap:10px;font-size:13px">
+      <span style="display:inline-block;width:8px;height:8px;border-radius:4px;background:#1F7A4D"></span>
+      <span style="font-weight:600">NGX open</span>
+    </div>
+    <a class="btn btn-p" href="T-Stock.dc.html">New order</a>
+  </div>
+
+  <div style="padding:28px 32px;display:flex;flex-direction:column;gap:20px">
+
+    <div class="card" style="border-color:#295D8F">
+      <div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;align-items:flex-start">
+        <div>
+          <div style="display:flex;align-items:center;gap:10px">
+            <span class="pill" style="background:#D6E4F0;color:#17375A">Buy</span>
+            <h2 style="margin:0;font-size:20px;font-weight:700">ZENITHBANK · 2,000 units · limit ₦48.50</h2>
+          </div>
+          <div class="muted" style="font-size:14px;margin-top:4px">Order VND-26-004812 · placed today 10:42 · valid today</div>
+        </div>
+        <div style="display:flex;gap:10px">
+          <button class="btn btn-o btn-s" type="button">Amend price</button>
+          <button class="btn btn-o btn-s" type="button" style="color:#B3261E;border-color:#B3261E">Cancel remaining</button>
+        </div>
+      </div>
+
+      <div style="display:flex;gap:0;margin-top:28px;position:relative">
+        <div style="position:absolute;left:8%;right:8%;top:14px;height:2px;background:#EEF2F6"></div>
+        <div style="position:absolute;left:8%;width:56%;top:14px;height:2px;background:#1F7A4D"></div>
+        <div class="step"><div class="dot" style="background:#1F7A4D;color:#fff">1</div><div><strong>Received</strong><div class="muted">10:42</div></div></div>
+        <div class="step"><div class="dot" style="background:#1F7A4D;color:#fff">2</div><div><strong>Sent to Trust Bank Securities</strong><div class="muted">10:43</div></div></div>
+        <div class="step"><div class="dot" style="background:#1F7A4D;color:#fff">3</div><div><strong>On the exchange</strong><div class="muted">10:51</div></div></div>
+        <div class="step"><div class="dot" style="background:#C59F56;color:#17375A">4</div><div><strong>Partly filled</strong><div class="muted">1,400 of 2,000 at ₦48.50</div></div></div>
+        <div class="step"><div class="dot" style="background:#EEF2F6;color:#5B6B7F">5</div><div><strong>Filled</strong><div class="muted">waiting for sellers</div></div></div>
+        <div class="step"><div class="dot" style="background:#EEF2F6;color:#5B6B7F">6</div><div><strong>Settled</strong><div class="muted">shares land in your CHN</div></div></div>
+      </div>
+
+      <div style="margin-top:24px;padding:12px 14px;background:#F5F7FA;border-radius:8px;font-size:13px;display:flex;flex-wrap:wrap;gap:16px;align-items:center">
+        <span>600 units still open. The rest fills when a seller matches ₦48.50 or below, or the order expires at the close.</span>
+        <a href="#explain" style="margin-left:auto">Why do orders fill in parts?</a>
+      </div>
+    </div>
+
+    <div class="card" style="padding:0;overflow:hidden">
+      <div style="display:flex;gap:24px;padding:14px 20px 0;border-bottom:1px solid #EEF2F6;flex-wrap:wrap">
+        <a class="tab on" href="#open">Open orders (3)</a>
+        <a class="tab" href="#history">Trade history</a>
+        <a class="tab" href="#statements">Statements</a>
+        <a class="tab" href="#complaints">Complaints</a>
+      </div>
+      <div style="overflow-x:auto">
+      <table class="tbl">
+        <thead><tr><th>Placed</th><th>Order</th><th>Security</th><th class="num">Units</th><th class="num">Price</th><th>Status</th><th>Valid</th><th></th></tr></thead>
+        <tbody>
+          <tr><td>Today 10:42</td><td><span class="pill" style="background:#D6E4F0;color:#17375A">Buy</span></td><td><strong>ZENITHBANK</strong></td><td class="num">2,000</td><td class="num">Limit ₦48.50</td><td><span class="pill" style="background:#FFF1D6;color:#8A5A00">Partly filled 1,400</span></td><td>Today</td><td style="white-space:nowrap"><a href="#amend" style="font-size:13px">Amend</a> · <a href="#cancel" style="font-size:13px;color:#B3261E">Cancel</a></td></tr>
+          <tr><td>Today 09:58</td><td><span class="pill" style="background:#FDE2E0;color:#B3261E">Sell</span></td><td><strong>NAHCO</strong></td><td class="num">3,000</td><td class="num">Limit ₦80.00</td><td><span class="pill" style="background:#EEF2F6;color:#5B6B7F">On the exchange</span></td><td>Today</td><td style="white-space:nowrap"><a href="#amend" style="font-size:13px">Amend</a> · <a href="#cancel" style="font-size:13px;color:#B3261E">Cancel</a></td></tr>
+          <tr><td>Yesterday 19:20</td><td><span class="pill" style="background:#D6E4F0;color:#17375A">Buy</span></td><td><strong>STANBICETF30</strong></td><td class="num">1,000</td><td class="num">Market</td><td><span class="pill" style="background:#EEF2F6;color:#5B6B7F">Queued for open</span></td><td>Today</td><td style="white-space:nowrap"><a href="#amend" style="font-size:13px">Amend</a> · <a href="#cancel" style="font-size:13px;color:#B3261E">Cancel</a></td></tr>
+        </tbody>
+      </table>
+      </div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(2, minmax(0, 1fr));gap:20px">
+      <div class="card" style="padding:0;overflow:hidden">
+        <div style="padding:18px 20px 10px;display:flex;justify-content:space-between;align-items:center">
+          <h2 style="margin:0;font-size:17px;font-weight:600">Recent trades</h2>
+          <a href="#all" style="font-size:13px">All trades</a>
+        </div>
+        <div style="overflow-x:auto">
+        <table class="tbl">
+          <thead><tr><th>Date</th><th>Trade</th><th class="num">Total paid</th><th>Contract note</th></tr></thead>
+          <tbody>
+            <tr><td>3 Oct</td><td><strong>Buy GTCO</strong> 1,000 at ₦71.80</td><td class="num">₦73,215</td><td><a href="#cn" style="font-size:13px">PDF</a></td></tr>
+            <tr><td>26 Sep</td><td><strong>Buy MTNN</strong> 500 at ₦258.00</td><td class="num">₦131,541</td><td><a href="#cn" style="font-size:13px">PDF</a></td></tr>
+            <tr><td>16 Sep</td><td><strong>FGN Savings Bond</strong> 300 units, 3 year</td><td class="num">₦300,000</td><td><a href="#cn" style="font-size:13px">Allotment</a></td></tr>
+            <tr><td>9 Sep</td><td><strong>Sell DANGCEM</strong> 200 at ₦462.00</td><td class="num">₦90,615 received</td><td><a href="#cn" style="font-size:13px">PDF</a></td></tr>
+          </tbody>
+        </table>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2 style="margin:0;font-size:17px;font-weight:600">Statements and documents</h2>
+        <div style="margin-top:14px;display:flex;flex-direction:column;gap:10px;font-size:14px">
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 12px;background:#F5F7FA;border-radius:8px"><span>Monthly statement, September 2026</span><a href="#dl" style="font-size:13px">Download</a></div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 12px;background:#F5F7FA;border-radius:8px"><span>CSCS holdings statement (as of today)</span><a href="#dl" style="font-size:13px">Request</a></div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 12px;background:#F5F7FA;border-radius:8px"><span>Annual tax pack 2026</span><span class="pill" style="background:#EEF2F6;color:#5B6B7F">Phase 3</span></div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 12px;background:#F5F7FA;border-radius:8px"><span>Export transactions (CSV)</span><span class="pill" style="background:#EEF2F6;color:#5B6B7F">Phase 3</span></div>
+        </div>
+        <div style="margin-top:16px;padding-top:14px;border-top:1px solid #EEF2F6;font-size:13px" class="muted">
+          Something wrong with a trade? <a href="#complaint">Log a complaint</a>. We acknowledge within 1 working day and resolve within the SEC timelines. You can track every step here.
+        </div>
+      </div>
+    </div>
+
+  </div>
+</main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1180}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

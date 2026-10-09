@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Vendii Trading: Open your account</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&amp;display=swap">
+<style>
+body{margin:0;font-family:'Space Grotesk',system-ui,sans-serif;color:#17375A;background:#F5F7FA}
+a{color:#295D8F;text-decoration:none}a:hover{color:#17375A}
+.card{background:#fff;border:1px solid #D9DEE5;border-radius:12px;padding:24px}
+.muted{color:#5B6B7F}
+.pill{display:inline-block;padding:3px 10px;border-radius:999px;font-size:12px;font-weight:500;line-height:1.4}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:0 20px;border-radius:8px;font:inherit;font-weight:600;font-size:15px;cursor:pointer;border:1px solid transparent}
+.btn-p{background:#295D8F;color:#fff}.btn-p:hover{background:#1F4A75}
+.btn-o{background:#fff;color:#295D8F;border-color:#295D8F}.btn-o:hover{background:#EEF2F6}
+.inp{width:100%;box-sizing:border-box;height:48px;border:1px solid #D9DEE5;border-radius:8px;padding:0 14px;font:inherit;font-size:16px;color:#17375A;background:#fff}
+.lbl{display:block;font-size:13px;color:#5B6B7F;margin-bottom:6px;font-weight:500}
+.step{display:flex;gap:14px;align-items:flex-start;padding:14px 12px;border-radius:10px;background:transparent;border:0;text-align:left;font:inherit;color:#17375A;cursor:pointer;width:100%}
+.step.on{background:#fff;box-shadow:0 0 0 1px #D9DEE5}
+.dot{width:30px;height:30px;border-radius:15px;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;flex:none}
+.opt{border:1px solid #D9DEE5;border-radius:10px;padding:14px 16px;background:#fff;font:inherit;color:#17375A;text-align:left;cursor:pointer;min-height:48px;width:100%;box-sizing:border-box}
+.opt.on{border-color:#17375A;box-shadow:inset 0 0 0 1px #17375A;background:#F5F7FA}
+.chk{display:flex;gap:10px;align-items:flex-start;font-size:14px;padding:12px 14px;background:#F5F7FA;border-radius:8px}
+</style>
+</helmet>
+
+<div style="min-height:1180px;display:flex;flex-direction:column">
+  <div style="display:flex;flex-wrap:wrap;align-items:center;gap:16px;padding:18px 40px;background:#fff;border-bottom:1px solid #D9DEE5">
+    <div style="display:flex;align-items:center;gap:10px">
+      <svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><circle cx="15" cy="15" r="15" fill="#295D8F"></circle><path d="M15 5 L19 15 L15 25 L11 15 Z" fill="#fff"></path><circle cx="15" cy="15" r="2" fill="#295D8F"></circle></svg>
+      <span style="font-weight:700;font-size:20px">Vendii</span>
+    </div>
+    <span class="muted" style="font-size:14px;flex:1 1 auto">Open your investment account · about 6 minutes</span>
+    <span class="pill" style="background:#DCEFE4;color:#1F7A4D">Progress saved. Continue on any device.</span>
+    <a href="Main.dc.html" style="font-size:14px">Save and exit</a>
+  </div>
+
+  <div style="flex:1;display:flex;flex-wrap:wrap;gap:40px;padding:40px;max-width:1360px;box-sizing:border-box;margin:0 auto;width:100%">
+
+    <aside style="flex:0 1 380px;min-width:280px;display:flex;flex-direction:column;gap:6px">
+      <h1 style="margin:0 12px 12px;font-size:24px;font-weight:600">Let's set you up</h1>
+
+      <button type="button" class="{{c1}}" onClick="{{go1}}">
+        <div class="dot" style="background:#1F7A4D;color:#fff">✓</div>
+        <div><div style="font-weight:600">Prove it's you</div><div class="muted" style="font-size:13px">BVN, NIN and a selfie. Done in 90 seconds.</div></div>
+      </button>
+      <button type="button" class="{{c2}}" onClick="{{go2}}">
+        <div class="dot" style="background:#17375A;color:#fff">2</div>
+        <div><div style="font-weight:600">About your investing</div><div class="muted" style="font-size:13px">Five questions so we only show you what fits.</div></div>
+      </button>
+      <button type="button" class="{{c3}}" onClick="{{go3}}">
+        <div class="dot" style="background:#EEF2F6;color:#5B6B7F">3</div>
+        <div><div style="font-weight:600">Who inherits your account</div><div class="muted" style="font-size:13px">A name and a phone number. It matters more than you think.</div></div>
+      </button>
+      <button type="button" class="{{c4}}" onClick="{{go4}}">
+        <div class="dot" style="background:#EEF2F6;color:#5B6B7F">4</div>
+        <div><div style="font-weight:600">Your bank account</div><div class="muted" style="font-size:13px">Where withdrawals and dividends go. Must match your BVN.</div></div>
+      </button>
+      <button type="button" class="{{c5}}" onClick="{{go5}}">
+        <div class="dot" style="background:#EEF2F6;color:#5B6B7F">5</div>
+        <div><div style="font-weight:600">Your CSCS number</div><div class="muted" style="font-size:13px">We open it through Trust Bank Securities, or link one you already have.</div></div>
+      </button>
+
+      <div style="margin:20px 12px 0;padding:16px;background:#fff;border:1px solid #D9DEE5;border-radius:10px;font-size:13px;line-height:1.5">
+        <div style="font-weight:600;margin-bottom:6px">Start small, unlock more later</div>
+        <div><strong>Tier 1</strong> BVN and selfie: invest up to ₦300,000 a month.</div>
+        <div><strong>Tier 2</strong> Add NIN: up to ₦5m a month.</div>
+        <div><strong>Tier 3</strong> Add proof of address: no limit.</div>
+        <div class="muted" style="margin-top:6px">Sample limits; final tiers follow CBN and SEC guidance.</div>
+      </div>
+      <div style="margin:10px 12px 0;font-size:13px" class="muted">Living outside Nigeria? <a href="#diaspora">Diaspora signup</a> <span class="pill" style="background:#EEF2F6;color:#5B6B7F">Phase 2</span></div>
+    </aside>
+
+    <section style="flex:1 1 560px;min-width:0">
+
+      <sc-if value="{{s1}}" hint-placeholder-val="{{ false }}">
+      <div class="card">
+        <h2 style="margin:0;font-size:22px;font-weight:600">Identity confirmed</h2>
+        <div style="margin-top:16px;display:flex;flex-direction:column;gap:10px">
+          <div class="chk"><span style="color:#1F7A4D;font-weight:700">✓</span><span><strong>BVN</strong> ••••••3321 · Damilola Ojo · matches NIBSS</span></div>
+          <div class="chk"><span style="color:#1F7A4D;font-weight:700">✓</span><span><strong>NIN</strong> ••••••8804 · matches NIMC</span></div>
+          <div class="chk"><span style="color:#1F7A4D;font-weight:700">✓</span><span><strong>Selfie</strong> matched your BVN photo</span></div>
+        </div>
+        <div class="muted" style="font-size:13px;margin-top:14px">Your name has to read the same way on your BVN, your bank account and your CSCS record, or dividends and trades get stuck. We check all three for you.</div>
+        <button class="btn btn-p" type="button" style="margin-top:20px" onClick="{{go2}}">Continue</button>
+      </div>
+      </sc-if>
+
+      <sc-if value="{{s2}}" hint-placeholder-val="{{ true }}">
+      <div class="card">
+        <div class="muted" style="font-size:13px">Step 2 of 5</div>
+        <h2 style="margin:6px 0 0;font-size:22px;font-weight:600">About your investing</h2>
+        <div class="muted" style="font-size:14px;margin-top:4px">There are no wrong answers. This decides what we show first and when we warn you.</div>
+
+        <div style="margin-top:22px">
+          <div class="lbl">Have you invested in shares before?</div>
+          <div style="display:grid;grid-template-columns:repeat(3, minmax(0, 1fr));gap:10px">
+            <button type="button" class="{{e0}}" onClick="{{setE0}}">Never</button>
+            <button type="button" class="{{e1}}" onClick="{{setE1}}">A little, through a broker or app</button>
+            <button type="button" class="{{e2}}" onClick="{{setE2}}">Yes, I trade regularly</button>
+          </div>
+        </div>
+
+        <div style="margin-top:18px">
+          <div class="lbl">If your ₦100,000 became ₦80,000 in a month, you would</div>
+          <div style="display:grid;grid-template-columns:repeat(3, minmax(0, 1fr));gap:10px">
+            <button type="button" class="{{r0}}" onClick="{{setR0}}">Sell to stop the loss</button>
+            <button type="button" class="{{r1}}" onClick="{{setR1}}">Hold and wait</button>
+            <button type="button" class="{{r2}}" onClick="{{setR2}}">Buy more</button>
+          </div>
+        </div>
+
+        <div style="margin-top:18px">
+          <div class="lbl">What is this money mostly for?</div>
+          <div style="display:grid;grid-template-columns:repeat(3, minmax(0, 1fr));gap:10px">
+            <button type="button" class="opt">Growing savings over years</button>
+            <button type="button" class="opt">Regular income from dividends and coupons</button>
+            <button type="button" class="opt">A goal within 2 years (rent, fees, a trip)</button>
+          </div>
+        </div>
+
+        <div style="margin-top:18px;display:grid;grid-template-columns:repeat(2, minmax(0, 1fr));gap:16px">
+          <div><label class="lbl" for="inc">Monthly income band</label><select id="inc" class="inp"><option>Under ₦200,000</option><option>₦200,000 to ₦500,000</option><option selected="selected">₦500,000 to ₦2m</option><option>Over ₦2m</option></select></div>
+          <div><label class="lbl" for="src">Main source of funds</label><select id="src" class="inp"><option selected="selected">Salary</option><option>Business income</option><option>Savings</option><option>Inheritance</option><option>Other</option></select></div>
+        </div>
+
+        <div style="margin-top:20px;padding:14px 16px;background:#F5F7FA;border-radius:10px;font-size:14px">
+          <strong>What this means for you:</strong> {{profileLine}}
+        </div>
+
+        <div style="display:flex;gap:12px;margin-top:22px">
+          <button class="btn btn-o" type="button" onClick="{{go1}}">Back</button>
+          <button class="btn btn-p" type="button" onClick="{{go3}}">Continue</button>
+        </div>
+      </div>
+      </sc-if>
+
+      <sc-if value="{{s3}}" hint-placeholder-val="{{ false }}">
+      <div class="card">
+        <div class="muted" style="font-size:13px">Step 3 of 5</div>
+        <h2 style="margin:6px 0 0;font-size:22px;font-weight:600">Who should inherit this account?</h2>
+        <div style="margin-top:12px;padding:14px 16px;background:#FFF7E6;border:1px solid #C59F56;border-radius:10px;font-size:14px;line-height:1.5">About ₦270bn of Nigerian dividends sit unclaimed, much of it because a shareholder died and nobody knew the shares existed. Naming someone now takes 30 seconds and saves your family years.</div>
+        <div style="margin-top:18px;display:grid;grid-template-columns:repeat(2, minmax(0, 1fr));gap:16px">
+          <div><label class="lbl" for="bn">Full name</label><input id="bn" class="inp" type="text" value="Adaeze Ojo"></div>
+          <div><label class="lbl" for="br">Relationship</label><select id="br" class="inp"><option selected="selected">Spouse</option><option>Child</option><option>Parent</option><option>Sibling</option><option>Other</option></select></div>
+          <div><label class="lbl" for="bp">Phone</label><input id="bp" class="inp" type="tel" value="0803 000 0000"></div>
+          <div><label class="lbl" for="bd">Date of birth</label><input id="bd" class="inp" type="date"></div>
+        </div>
+        <div class="chk" style="margin-top:14px"><input type="checkbox" id="rem" checked="checked" style="width:18px;height:18px;margin:2px 0 0"><label for="rem">Remind me once a year to confirm this is still right</label></div>
+        <div style="display:flex;gap:12px;margin-top:22px">
+          <button class="btn btn-o" type="button" onClick="{{go2}}">Back</button>
+          <button class="btn btn-p" type="button" onClick="{{go4}}">Continue</button>
+          <a href="#skip" style="align-self:center;font-size:14px;margin-left:auto" class="muted">Skip for now</a>
+        </div>
+      </div>
+      </sc-if>
+
+      <sc-if value="{{s4}}" hint-placeholder-val="{{ false }}">
+      <div class="card">
+        <div class="muted" style="font-size:13px">Step 4 of 5</div>
+        <h2 style="margin:6px 0 0;font-size:22px;font-weight:600">Your bank account</h2>
+        <div class="muted" style="font-size:14px;margin-top:4px">Withdrawals and recovered dividends go here. The account name must match your BVN.</div>
+        <div style="margin-top:18px;display:grid;grid-template-columns:repeat(2, minmax(0, 1fr));gap:16px">
+          <div><label class="lbl" for="bk">Bank</label><select id="bk" class="inp"><option selected="selected">Guaranty Trust Bank</option><option>Zenith Bank</option><option>Access Bank</option><option>Trust Bank</option></select></div>
+          <div><label class="lbl" for="an">Account number</label><input id="an" class="inp" type="text" value="0123454417"></div>
+        </div>
+        <div class="chk" style="margin-top:14px"><span style="color:#1F7A4D;font-weight:700">✓</span><span>Account name <strong>DAMILOLA OJO</strong> matches your BVN</span></div>
+        <div style="display:flex;gap:12px;margin-top:22px">
+          <button class="btn btn-o" type="button" onClick="{{go3}}">Back</button>
+          <button class="btn btn-p" type="button" onClick="{{go5}}">Continue</button>
+        </div>
+      </div>
+      </sc-if>
+
+      <sc-if value="{{s5}}" hint-placeholder-val="{{ false }}">
+      <div class="card">
+        <div class="muted" style="font-size:13px">Step 5 of 5</div>
+        <h2 style="margin:6px 0 0;font-size:22px;font-weight:600">Your CSCS number (CHN)</h2>
+        <div class="muted" style="font-size:14px;margin-top:4px">Every Nigerian shareholder has a Clearing House Number. Shares sit there in your own name, not ours.</div>
+        <div style="margin-top:18px;display:grid;grid-template-columns:repeat(2, minmax(0, 1fr));gap:12px">
+          <button type="button" class="opt on"><div style="font-weight:600">Open a new CHN for me</div><div class="muted" style="font-size:13px;margin-top:4px">Through Trust Bank Securities. Usually ready within 1 working day; you can fund your account meanwhile.</div></button>
+          <button type="button" class="opt"><div style="font-weight:600;display:flex;gap:8px;align-items:center">I already have one <span class="pill" style="background:#EEF2F6;color:#5B6B7F">Phase 2</span></div><div class="muted" style="font-size:13px;margin-top:4px">Link it and we import the shares you already hold, including ones you may have forgotten.</div></button>
+        </div>
+        <div class="chk" style="margin-top:18px"><input type="checkbox" id="t1" style="width:18px;height:18px;margin:2px 0 0"><label for="t1">I've read the <a href="#risk">risk disclosure</a> and the <a href="#terms">terms</a>. Share prices go down as well as up.</label></div>
+        <div style="display:flex;gap:12px;margin-top:22px">
+          <button class="btn btn-o" type="button" onClick="{{go4}}">Back</button>
+          <a class="btn btn-p" href="Main.dc.html">Finish and see my account</a>
+        </div>
+      </div>
+      </sc-if>
+
+    </section>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1180}}'>
+class Component extends DCLogic {
+  constructor(p){ super(p); this.state = { step:2, exp:1, risk:1 }; }
+  renderVals(){
+    const s=this.state;
+    const c=(i)=>'step'+(s.step===i?' on':'');
+    const o=(k,v)=>'opt'+(s[k]===v?' on':'');
+    const lines = [
+      'We will start you with large, liquid companies and the FGN Savings Bond, and warn you before any thin stock.',
+      'You will see the full market with liquidity warnings on thin stocks. Limit orders are your default.',
+      'Full market, all order types. We still show liquidity and price band warnings, because everyone needs them.'
+    ];
+    return {
+      c1:c(1),c2:c(2),c3:c(3),c4:c(4),c5:c(5),
+      s1:s.step===1,s2:s.step===2,s3:s.step===3,s4:s.step===4,s5:s.step===5,
+      go1:()=>this.setState({step:1}),go2:()=>this.setState({step:2}),go3:()=>this.setState({step:3}),go4:()=>this.setState({step:4}),go5:()=>this.setState({step:5}),
+      e0:o('exp',0),e1:o('exp',1),e2:o('exp',2),
+      setE0:()=>this.setState({exp:0}),setE1:()=>this.setState({exp:1}),setE2:()=>this.setState({exp:2}),
+      r0:o('risk',0),r1:o('risk',1),r2:o('risk',2),
+      setR0:()=>this.setState({risk:0}),setR1:()=>this.setState({risk:1}),setR2:()=>this.setState({risk:2}),
+      profileLine: lines[Math.min(2, Math.round((s.exp+s.risk)/2))]
+    };
+  }
+}
+</script>
+</body>
+</html>

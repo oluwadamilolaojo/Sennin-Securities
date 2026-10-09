@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Vendii Borrow: Review and sign</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&amp;display=swap">
+<style>
+body{margin:0;font-family:'Space Grotesk',system-ui,sans-serif;color:#17375A;background:#F5F7FA}
+a{color:#295D8F;text-decoration:none}a:hover{color:#17375A}
+.nav a{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:8px;color:#D6E4F0;font-size:14px;font-weight:500}
+.nav a:hover{background:#1F4A75;color:#fff}
+.nav a.on{background:#295D8F;color:#fff}
+.card{background:#fff;border:1px solid #D9DEE5;border-radius:12px;padding:20px}
+.muted{color:#5B6B7F}
+.pill{display:inline-block;padding:3px 10px;border-radius:999px;font-size:12px;font-weight:500;line-height:1.4}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 18px;border-radius:8px;font:inherit;font-weight:600;font-size:14px;cursor:pointer;border:1px solid transparent}
+.btn-p{background:#295D8F;color:#fff}.btn-p:hover{background:#1F4A75}
+.btn-g{background:#C59F56;color:#17375A}.btn-g:hover{background:#B08C45}
+.btn-o{background:#fff;color:#295D8F;border-color:#295D8F}.btn-o:hover{background:#EEF2F6}
+.inp{width:100%;box-sizing:border-box;height:46px;border:1px solid #D9DEE5;border-radius:8px;padding:0 14px;font:inherit;font-size:16px;color:#17375A;background:#fff}
+.lbl{display:block;font-size:12px;color:#5B6B7F;margin-bottom:6px;font-weight:500}
+.kf{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid #EEF2F6;font-size:14px}
+.kf strong{text-align:right;font-variant-numeric:tabular-nums}
+.chk{display:flex;gap:10px;align-items:flex-start;font-size:14px;padding:12px 14px;background:#F5F7FA;border-radius:8px}
+.ok{color:#1F7A4D;font-weight:700}
+.stepn{width:26px;height:26px;border-radius:13px;background:#17375A;color:#fff;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex:none}
+</style>
+</helmet>
+
+<div style="display:flex;flex-wrap:wrap;min-height:1180px">
+
+<nav class="nav" style="flex:0 0 232px;background:#17375A;padding:24px 16px;display:flex;flex-direction:column;gap:4px;box-sizing:border-box">
+  <div style="display:flex;align-items:center;gap:10px;padding:4px 12px 24px">
+    <svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><circle cx="15" cy="15" r="15" fill="#C59F56"></circle><path d="M15 5 L19 15 L15 25 L11 15 Z" fill="#17375A"></path><circle cx="15" cy="15" r="2" fill="#C59F56"></circle></svg>
+    <span style="color:#fff;font-weight:700;font-size:20px">Vendii <span style="color:#C59F56">Borrow</span></span>
+  </div>
+  <a href="L-Start.dc.html">Check what you can borrow</a>
+  <a href="L-Build.dc.html">Build your loan</a>
+  <a class="on" href="L-Review.dc.html">Review and sign</a>
+  <a href="L-Dashboard.dc.html">My loan</a>
+  <a href="L-MarginCall.dc.html">Alert state (demo)</a>
+  <a href="L-LenderConsole.dc.html">Lender console</a>
+  <div style="flex:1 1 auto;min-height:120px"></div>
+  <div style="background:#1F4A75;border-radius:10px;padding:14px;color:#D6E4F0;font-size:12px;line-height:1.5">
+    <div style="color:#fff;font-weight:600;margin-bottom:4px">Who lends</div>
+    Loans are provided by Trust Bank. Vendii arranges them. Your shares stay in your name at CSCS with a lien in the bank's favour until you repay.
+  </div>
+  <a href="/Main.dc.html" style="font-size:13px;margin-top:8px">Back to Vendii Trading</a>
+  <a href="#chat" style="font-size:13px">Talk to us</a>
+</nav>
+
+<main style="flex:999 1 560px;min-width:0;display:flex;flex-direction:column;box-sizing:border-box">
+  <div style="display:flex;flex-wrap:wrap;align-items:center;gap:16px;padding:16px 32px;background:#fff;border-bottom:1px solid #D9DEE5">
+    <h1 style="margin:0;font-size:22px;font-weight:600;flex:1 1 auto">Review and sign</h1>
+    <span class="muted" style="font-size:13px">Step 2 of 2 · nothing is final until you tap the last button</span>
+  </div>
+
+  <div style="padding:28px 32px;display:grid;grid-template-columns:repeat(2, minmax(0, 1fr));gap:20px;align-items:start">
+
+    <div style="display:flex;flex-direction:column;gap:20px;min-width:0">
+      <div class="card" style="border-color:#17375A">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:12px">
+          <div>
+            <div class="muted" style="font-size:12px;letter-spacing:.04em;text-transform:uppercase;font-weight:600">Key facts sheet</div>
+            <h2 style="margin:4px 0 0;font-size:20px;font-weight:700">Share-backed loan from Trust Bank</h2>
+            <div class="muted" style="font-size:13px">Arranged by Vendii · Reference VBL-2026-00118 · 7 Oct 2026</div>
+          </div>
+          <a href="#pdf" class="btn btn-o" style="min-height:38px;font-size:13px">Download PDF</a>
+        </div>
+        <div style="margin-top:16px">
+          <div class="kf"><span>You borrow</span><strong>₦900,000</strong></div>
+          <div class="kf"><span>For</span><strong>6 months, 14 Oct 2026 to 14 Apr 2027</strong></div>
+          <div class="kf"><span>Interest rate</span><strong>24% a year, fixed</strong></div>
+          <div class="kf"><span>You pay each month (14th)</span><strong>₦160,689 by direct debit</strong></div>
+          <div class="kf"><span>Total interest</span><strong>₦64,135</strong></div>
+          <div class="kf"><span>Arrangement fee, once</span><strong>₦9,000</strong></div>
+          <div class="kf"><span>CSCS lien fee</span><strong>₦2,500</strong></div>
+          <div class="kf"><span>Total you repay</span><strong>₦975,635</strong></div>
+          <div class="kf"><span>Effective annual cost (APR)</span><strong>33.6%</strong></div>
+          <div class="kf"><span>Repay early</span><strong>Any day, no charge</strong></div>
+          <div class="kf"><span>Shares pledged</span><strong>MTNN 3,500 · DANGCEM 2,200 · GTCO 9,000<br>worth ₦2,570,500 today</strong></div>
+          <div class="kf"><span>Dividends on pledged shares</span><strong>Paid to you as normal</strong></div>
+          <div class="kf"><span>We warn you</span><strong>when the loan reaches 62.5% of share value</strong></div>
+          <div class="kf"><span>We ask you to add cash or shares</span><strong>at 71.4%, with 3 working days to act</strong></div>
+          <div class="kf" style="border:0"><span>Shares may be sold</span><strong>at 80%, or after the 3 days pass unanswered</strong></div>
+        </div>
+        <div style="margin-top:14px;padding:14px;background:#FFF7E6;border:1px solid #C59F56;border-radius:10px;font-size:14px;line-height:1.6">
+          <strong>In plain words:</strong> your shares are worth ₦2.57m. If they fall about 51% to ₦1.26m, we ask for roughly ₦112,000 more. If they fall 56% and nothing is added, we sell enough to bring the loan back to 62.5% and return the rest. In 2026 so far the largest 30-day fall in these three stocks was 14%. A missed monthly payment adds 1% of the overdue amount per month and is reported to credit bureaus after 30 days.
+        </div>
+      </div>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:20px;min-width:0">
+      <div class="card">
+        <h2 style="margin:0;font-size:17px;font-weight:600">Checks done</h2>
+        <div style="margin-top:12px;display:flex;flex-direction:column;gap:8px">
+          <div class="chk"><span class="ok">✓</span><span>Name matches across BVN, CSCS and GTBank: <strong>DAMILOLA OJO</strong></span></div>
+          <div class="chk"><span class="ok">✓</span><span>None of the pledged shares has an existing lien at CSCS</span></div>
+          <div class="chk"><span class="ok">✓</span><span>No single stock backs more than 40% of the loan</span></div>
+          <div class="chk"><span class="ok">✓</span><span>Purpose declared: personal, not for buying securities</span></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2 style="margin:0;font-size:17px;font-weight:600">Three things to do</h2>
+
+        <div style="display:flex;gap:12px;margin-top:16px">
+          <div class="stepn">1</div>
+          <div style="flex:1">
+            <div style="font-weight:600">Allow a credit bureau check</div>
+            <label style="display:flex;gap:10px;align-items:flex-start;font-size:14px;margin-top:8px">
+              <input type="checkbox" checked="checked" style="width:18px;height:18px;margin:2px 0 0">
+              <span>Trust Bank may check my record at CRC, FirstCentral or CreditRegistry, and report this loan to them.</span>
+            </label>
+          </div>
+        </div>
+
+        <div style="display:flex;gap:12px;margin-top:18px">
+          <div class="stepn">2</div>
+          <div style="flex:1">
+            <div style="font-weight:600">Confirm the lien with CSCS</div>
+            <div class="muted" style="font-size:13px;margin-top:2px">CSCS sent a 6-digit code to 0803 •••• 221. It places a lien on the pledged shares in favour of Trust Bank. The lien lifts automatically when you repay.</div>
+            <div style="display:flex;gap:10px;margin-top:10px;align-items:center">
+              <label for="otp" style="position:absolute;left:-9999px">CSCS code</label>
+              <input id="otp" class="inp" type="text" inputmode="numeric" maxlength="6" placeholder="••••••" style="max-width:180px;letter-spacing:.3em;text-align:center;font-size:20px">
+              <a href="#resend" style="font-size:13px">Resend code</a>
+            </div>
+          </div>
+        </div>
+
+        <div style="display:flex;gap:12px;margin-top:18px">
+          <div class="stepn">3</div>
+          <div style="flex:1">
+            <div style="font-weight:600">Sign the agreement</div>
+            <div class="muted" style="font-size:13px;margin-top:2px">Type your full name as it appears on your BVN. This counts as your signature on the <a href="#agr">loan agreement</a>, the <a href="#mand">NIBSS direct debit mandate</a> for GTBank ••4417, and the key facts sheet.</div>
+            <label class="lbl" for="sig" style="margin-top:10px">Full name</label>
+            <input id="sig" class="inp" type="text" value="Damilola Ojo" style="font-size:18px">
+          </div>
+        </div>
+
+        <div style="margin-top:18px;padding:12px 14px;background:#F5F7FA;border-radius:8px;font-size:14px;display:flex;justify-content:space-between;gap:10px;align-items:center">
+          <span>Money goes to <strong>GTBank ••4417</strong> (matches your BVN) within 2 working hours of signing.</span>
+          <span class="pill" style="background:#DCEFE4;color:#1F7A4D">Verified</span>
+        </div>
+
+        <a class="btn btn-g" href="L-Dashboard.dc.html" style="width:100%;box-sizing:border-box;margin-top:16px;min-height:50px;font-size:16px">Sign and place the lien</a>
+        <div class="muted" style="font-size:12px;margin-top:10px;text-align:center">You'll get the signed documents by email and in-app. <a href="L-Build.dc.html">Go back and change something</a></div>
+      </div>
+    </div>
+
+  </div>
+</main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1180}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Vendii Borrow: Action needed on your loan</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&amp;display=swap">
+<style>
+body{margin:0;font-family:'Space Grotesk',system-ui,sans-serif;color:#17375A;background:#F5F7FA}
+a{color:#295D8F;text-decoration:none}a:hover{color:#17375A}
+.nav a{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:8px;color:#D6E4F0;font-size:14px;font-weight:500}
+.nav a:hover{background:#1F4A75;color:#fff}
+.nav a.on{background:#295D8F;color:#fff}
+.card{background:#fff;border:1px solid #D9DEE5;border-radius:12px;padding:20px}
+.tbl{width:100%;border-collapse:collapse;font-size:14px}
+.tbl th{text-align:left;font-weight:500;color:#5B6B7F;padding:8px 12px;border-bottom:1px solid #D9DEE5;font-size:12px;letter-spacing:.03em;text-transform:uppercase}
+.tbl td{padding:11px 12px;border-bottom:1px solid #EEF2F6;vertical-align:middle}
+.num{font-variant-numeric:tabular-nums;text-align:right}
+.muted{color:#5B6B7F}
+.pill{display:inline-block;padding:3px 10px;border-radius:999px;font-size:12px;font-weight:500;line-height:1.4}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 18px;border-radius:8px;font:inherit;font-weight:600;font-size:14px;cursor:pointer;border:1px solid transparent}
+.btn-p{background:#295D8F;color:#fff}.btn-p:hover{background:#1F4A75}
+.btn-o{background:#fff;color:#295D8F;border-color:#295D8F}.btn-o:hover{background:#EEF2F6}
+.cure{border:1px solid #D9DEE5;border-radius:12px;padding:18px;background:#fff;display:flex;flex-direction:column;gap:10px}
+.row{display:flex;justify-content:space-between;align-items:center;gap:10px;font-size:14px}
+.dn{color:#B3261E}.up{color:#1F7A4D}
+.tl{display:flex;gap:12px;align-items:flex-start;font-size:13px;padding:10px 0;border-bottom:1px solid #EEF2F6}
+.tdot{width:10px;height:10px;border-radius:5px;flex:none;margin-top:5px}
+</style>
+</helmet>
+
+<div style="display:flex;flex-wrap:wrap;min-height:1180px">
+
+<nav class="nav" style="flex:0 0 232px;background:#17375A;padding:24px 16px;display:flex;flex-direction:column;gap:4px;box-sizing:border-box">
+  <div style="display:flex;align-items:center;gap:10px;padding:4px 12px 24px">
+    <svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><circle cx="15" cy="15" r="15" fill="#C59F56"></circle><path d="M15 5 L19 15 L15 25 L11 15 Z" fill="#17375A"></path><circle cx="15" cy="15" r="2" fill="#C59F56"></circle></svg>
+    <span style="color:#fff;font-weight:700;font-size:20px">Vendii <span style="color:#C59F56">Borrow</span></span>
+  </div>
+  <a href="L-Start.dc.html">Check what you can borrow</a>
+  <a href="L-Build.dc.html">Build your loan</a>
+  <a href="L-Review.dc.html">Review and sign</a>
+  <a href="L-Dashboard.dc.html">My loan</a>
+  <a class="on" href="L-MarginCall.dc.html">Alert state (demo)</a>
+  <a href="L-LenderConsole.dc.html">Lender console</a>
+  <div style="flex:1 1 auto;min-height:120px"></div>
+  <div style="background:#1F4A75;border-radius:10px;padding:14px;color:#D6E4F0;font-size:12px;line-height:1.5">
+    <div style="color:#fff;font-weight:600;margin-bottom:4px">Need a person?</div>
+    Loan support answers within 15 minutes on working days. Call 0700 VENDII or tap Talk to us.
+  </div>
+  <a href="/Main.dc.html" style="font-size:13px;margin-top:8px">Back to Vendii Trading</a>
+  <a href="#chat" style="font-size:13px">Talk to us</a>
+</nav>
+
+<main style="flex:999 1 560px;min-width:0;display:flex;flex-direction:column;box-sizing:border-box">
+
+  <div style="background:#B3261E;color:#fff;padding:18px 32px;display:flex;flex-wrap:wrap;align-items:center;gap:20px">
+    <div style="flex:1 1 400px">
+      <div style="font-size:13px;font-weight:600;opacity:.9">Action needed on loan VBL-2026-00118</div>
+      <h1 style="margin:4px 0 0;font-size:24px;font-weight:700">Your shares have fallen. Add cash or shares by Friday 20 Nov, 2:00pm.</h1>
+    </div>
+    <div style="text-align:right">
+      <div style="font-size:13px;opacity:.9">Time left</div>
+      <div style="font-size:36px;font-weight:700;font-variant-numeric:tabular-nums;line-height:1">2 days 4 hrs</div>
+      <div style="font-size:13px;opacity:.9">then enough shares are sold to restore the loan</div>
+    </div>
+  </div>
+
+  <div style="padding:28px 32px;display:flex;flex-direction:column;gap:20px">
+
+    <div class="card" style="border-color:#B3261E">
+      <div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;align-items:flex-end">
+        <div>
+          <div class="muted" style="font-size:13px">Loan health today</div>
+          <div style="display:flex;align-items:baseline;gap:12px;margin-top:4px">
+            <span style="font-size:36px;font-weight:700;color:#B3261E">73.1%</span>
+            <span style="font-size:15px">loan ₦757,311 against shares now worth <strong>₦1,036,000</strong> <span class="dn">(-58% since 14 Oct)</span></span>
+          </div>
+        </div>
+        <div style="font-size:14px;text-align:right">To get back to a healthy 62.5% you need about <strong style="font-size:18px">₦110,000</strong> more cover.</div>
+      </div>
+      <div style="margin-top:16px;height:16px;border-radius:8px;background:#EEF2F6;position:relative;overflow:hidden">
+        <div style="position:absolute;left:0;top:0;bottom:0;width:62.5%;background:#DCEFE4"></div>
+        <div style="position:absolute;left:62.5%;top:0;bottom:0;width:8.9%;background:#FFF1D6"></div>
+        <div style="position:absolute;left:71.4%;top:0;bottom:0;right:0;background:#FDE2E0"></div>
+        <div style="position:absolute;left:0;top:0;bottom:0;width:73.1%;background:#B3261E;border-radius:8px"></div>
+      </div>
+      <div style="display:flex;justify-content:space-between;font-size:12px;margin-top:6px" class="muted"><span>0%</span><span>Warning 62.5%</span><span>Add cover 71.4%</span><span>Shares sold 80%</span></div>
+    </div>
+
+    <div>
+      <h2 style="margin:0 0 12px;font-size:17px;font-weight:600">Pick one. Each takes under a minute.</h2>
+      <div style="display:grid;grid-template-columns:repeat(3, minmax(0, 1fr));gap:20px">
+        <div class="cure" style="border-color:#17375A;box-shadow:inset 0 0 0 1px #17375A">
+          <div style="font-weight:600;font-size:16px">Repay part from your Vendii cash</div>
+          <div class="muted" style="font-size:13px">You have ₦215,000 settled cash in Vendii Trading. Use ₦120,000 of it. Nothing to transfer.</div>
+          <div class="row" style="margin-top:auto"><span class="muted">Health after</span><span class="up" style="font-weight:700">61.5% · Healthy</span></div>
+          <button class="btn btn-p" type="button">Repay ₦120,000 now</button>
+        </div>
+        <div class="cure">
+          <div style="font-weight:600;font-size:16px">Transfer cash in</div>
+          <div class="muted" style="font-size:13px">Send ₦110,000 or more to your Vendii account 9034 221 0045 from any bank. Counts the moment it lands.</div>
+          <div class="row" style="margin-top:auto"><span class="muted">Health after</span><span class="up" style="font-weight:700">62.5% · Healthy</span></div>
+          <button class="btn btn-o" type="button">Copy account number</button>
+        </div>
+        <div class="cure">
+          <div style="font-weight:600;font-size:16px">Pledge more shares</div>
+          <div class="muted" style="font-size:13px">You hold 12,000 ZENITHBANK (₦528,000) and 4,000 STANBICETF30 (₦640,000) that aren't pledged. One CSCS code adds them.</div>
+          <div class="row" style="margin-top:auto"><span class="muted">Health after (ZENITHBANK)</span><span class="up" style="font-weight:700">48.4% · Healthy</span></div>
+          <button class="btn btn-o" type="button">Pledge ZENITHBANK</button>
+        </div>
+      </div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(2, minmax(0, 1fr));gap:20px;align-items:start">
+      <div class="card">
+        <h2 style="margin:0;font-size:17px;font-weight:600">If you do nothing by Friday 2:00pm</h2>
+        <div class="muted" style="font-size:13px;margin-top:4px">This is exactly what would happen. No surprises, and you'd get the same record afterwards.</div>
+        <div style="overflow-x:auto;margin-top:12px">
+        <table class="tbl">
+          <thead><tr><th>Order</th><th>Security</th><th class="num">Units sold</th><th class="num">Est. price</th><th class="num">Proceeds</th></tr></thead>
+          <tbody>
+            <tr><td>1st</td><td><strong>GTCO</strong><div class="muted" style="font-size:12px">most liquid, sells fastest</div></td><td class="num">4,100</td><td class="num">₦41.00</td><td class="num">₦168,100</td></tr>
+            <tr><td colspan="4" style="color:#5B6B7F">Selling fees and charges</td><td class="num">-₦3,400</td></tr>
+            <tr><td colspan="4"><strong>Applied to the loan</strong></td><td class="num"><strong>₦164,700</strong></td></tr>
+            <tr><td colspan="4"><strong>Loan after</strong> · health 68.3%, below the 71.4% line</td><td class="num"><strong>₦592,611</strong></td></tr>
+          </tbody>
+        </table>
+        </div>
+        <div class="muted" style="font-size:12px;margin-top:10px">We sell only what restores the loan to a safe level. You keep every other share, and any extra naira goes to your bank. You'd choose the sale order yourself from Phase 2.</div>
+      </div>
+
+      <div class="card">
+        <h2 style="margin:0;font-size:17px;font-weight:600">Every message we sent, and where</h2>
+        <div style="margin-top:8px">
+          <div class="tl"><div class="tdot" style="background:#B3261E"></div><div><strong>Today 09:00 · Add cover by Fri 2:00pm</strong><div class="muted">SMS, WhatsApp, email, app, and a call attempt at 09:15 (no answer)</div></div></div>
+          <div class="tl"><div class="tdot" style="background:#B3261E"></div><div><strong>Yesterday 14:40 · Loan passed 71.4%</strong><div class="muted">SMS, WhatsApp, email, app</div></div></div>
+          <div class="tl"><div class="tdot" style="background:#B26B00"></div><div><strong>16 Nov 14:40 · Warning: loan passed 62.5%</strong><div class="muted">WhatsApp, email, app</div></div></div>
+          <div class="tl"><div class="tdot" style="background:#B26B00"></div><div><strong>13 Nov 14:40 · Heads up: DANGCEM fell 22% this week</strong><div class="muted">app</div></div></div>
+          <div class="tl" style="border:0"><div class="tdot" style="background:#5B6B7F"></div><div><strong>14 Oct · Loan started at 35.0%</strong><div class="muted">email</div></div></div>
+        </div>
+        <div class="muted" style="font-size:12px;margin-top:10px">This log is kept for the life of the loan and shared with Trust Bank. <a href="#audit">Download it</a></div>
+      </div>
+    </div>
+
+  </div>
+</main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1180}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

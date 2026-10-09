@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Vendii Trading: Funding and withdrawals</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&amp;display=swap">
+<style>
+body{margin:0;font-family:'Space Grotesk',system-ui,sans-serif;color:#17375A;background:#F5F7FA}
+a{color:#295D8F;text-decoration:none}a:hover{color:#17375A}
+.nav a{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:8px;color:#D6E4F0;font-size:14px;font-weight:500}
+.nav a:hover{background:#1F4A75;color:#fff}
+.nav a.on{background:#295D8F;color:#fff}
+.card{background:#fff;border:1px solid #D9DEE5;border-radius:12px;padding:20px}
+.tbl{width:100%;border-collapse:collapse;font-size:14px}
+.tbl th{text-align:left;font-weight:500;color:#5B6B7F;padding:8px 12px;border-bottom:1px solid #D9DEE5;font-size:12px;letter-spacing:.03em;text-transform:uppercase}
+.tbl td{padding:12px;border-bottom:1px solid #EEF2F6;vertical-align:middle}
+.num{font-variant-numeric:tabular-nums;text-align:right}
+.muted{color:#5B6B7F}
+.pill{display:inline-block;padding:3px 10px;border-radius:999px;font-size:12px;font-weight:500;line-height:1.4}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 18px;border-radius:8px;font:inherit;font-weight:600;font-size:14px;cursor:pointer;border:1px solid transparent}
+.btn-p{background:#295D8F;color:#fff}.btn-p:hover{background:#1F4A75}
+.btn-o{background:#fff;color:#295D8F;border-color:#295D8F}.btn-o:hover{background:#EEF2F6}
+.btn-s{min-height:34px;padding:0 12px;font-size:13px}
+.inp{width:100%;box-sizing:border-box;height:46px;border:1px solid #D9DEE5;border-radius:8px;padding:0 14px;font:inherit;font-size:16px;color:#17375A;background:#fff}
+.lbl{display:block;font-size:12px;color:#5B6B7F;margin-bottom:6px;font-weight:500}
+.row{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:10px 12px;background:#F5F7FA;border-radius:8px;font-size:14px}
+.sw{width:40px;height:22px;border-radius:11px;background:#D9DEE5;position:relative;border:0;cursor:pointer;flex:none}
+.sw.on{background:#1F7A4D}
+.sw span{position:absolute;top:2px;left:2px;width:18px;height:18px;border-radius:9px;background:#fff}
+.sw.on span{left:20px}
+</style>
+</helmet>
+
+<div style="display:flex;flex-wrap:wrap;min-height:1180px">
+
+<nav class="nav" style="flex:0 0 232px;background:#17375A;padding:24px 16px;display:flex;flex-direction:column;gap:4px;box-sizing:border-box">
+  <div style="display:flex;align-items:center;gap:10px;padding:4px 12px 24px">
+    <svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><circle cx="15" cy="15" r="15" fill="#C59F56"></circle><path d="M15 5 L19 15 L15 25 L11 15 Z" fill="#17375A"></path><circle cx="15" cy="15" r="2" fill="#C59F56"></circle></svg>
+    <span style="color:#fff;font-weight:700;font-size:20px">Vendii</span>
+  </div>
+  <a href="Main.dc.html">Home</a>
+  <a href="T-Stock.dc.html">Markets</a>
+  <a href="T-Orders.dc.html">Orders</a>
+  <a href="T-FixedIncome.dc.html">Fixed income</a>
+  <a href="T-Dividends.dc.html">Dividends</a>
+  <a class="on" href="T-Funding.dc.html">Funding</a>
+  <a href="/L-Start.dc.html">Borrow against shares</a>
+  <div style="flex:1 1 auto;min-height:120px"></div>
+  <div style="background:#1F4A75;border-radius:10px;padding:14px;color:#D6E4F0;font-size:12px;line-height:1.5">
+    <div style="color:#fff;font-weight:600;margin-bottom:4px">Your shares, your name</div>
+    Held at CSCS under CHN 2210045. Sponsoring broker: Trust Bank Securities.
+  </div>
+  <a href="#help" style="font-size:13px;margin-top:8px">Help centre</a>
+  <a href="#chat" style="font-size:13px">Talk to us</a>
+</nav>
+
+<main style="flex:999 1 560px;min-width:0;display:flex;flex-direction:column;box-sizing:border-box">
+  <div style="display:flex;flex-wrap:wrap;align-items:center;gap:16px;padding:16px 32px;background:#fff;border-bottom:1px solid #D9DEE5">
+    <h1 style="margin:0;font-size:22px;font-weight:600;flex:1 1 auto">Funding and withdrawals</h1>
+    <span class="muted" style="font-size:13px">Cash is held with Trust Bank Securities and never mixed with Vendii's own money</span>
+  </div>
+
+  <div style="padding:28px 32px;display:grid;grid-template-columns:repeat(3, minmax(0, 1fr));gap:20px;align-items:start">
+
+    <div style="display:flex;flex-direction:column;gap:20px">
+      <div class="card">
+        <h2 style="margin:0;font-size:17px;font-weight:600">Add money</h2>
+        <div class="muted" style="font-size:13px;margin-top:4px">Transfer from any Nigerian bank app. Money shows within minutes.</div>
+        <div style="margin-top:14px;padding:16px;background:#17375A;border-radius:10px;color:#fff">
+          <div style="font-size:12px;color:#D6E4F0">Your Vendii account number</div>
+          <div style="font-size:28px;font-weight:700;letter-spacing:.04em;font-variant-numeric:tabular-nums">9034 221 0045</div>
+          <div style="font-size:13px;color:#D6E4F0;margin-top:4px">Trust Bank · Account name: Damilola Ojo / Vendii</div>
+          <button class="btn btn-s" type="button" style="margin-top:12px;background:#C59F56;color:#17375A">Copy number</button>
+        </div>
+        <div class="row" style="margin-top:12px"><span>Pay with debit card</span><span class="pill" style="background:#EEF2F6;color:#5B6B7F">Phase 2</span></div>
+      </div>
+
+      <div class="card">
+        <h2 style="margin:0;font-size:17px;font-weight:600">Withdraw</h2>
+        <div style="margin-top:14px">
+          <label class="lbl" for="w">Amount (settled cash: ₦215,000)</label>
+          <input id="w" class="inp" type="number" step="1000" value="100000">
+        </div>
+        <div style="margin-top:12px">
+          <span class="lbl">To</span>
+          <div class="row"><span><strong>GTBank ••4417</strong><div class="muted" style="font-size:12px">Damilola Ojo · matches your BVN</div></span><a href="#change" style="font-size:12px">Change</a></div>
+        </div>
+        <div class="muted" style="font-size:12px;margin-top:10px">Withdrawals go only to an account in your name. Changing it needs a code from your phone and takes effect after 24 hours. Money lands within 2 working hours or we tell you why.</div>
+        <button class="btn btn-p" type="button" style="width:100%;margin-top:14px">Withdraw ₦100,000</button>
+      </div>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:20px">
+      <div class="card">
+        <h2 style="margin:0;font-size:17px;font-weight:600">Cash</h2>
+        <div style="font-size:30px;font-weight:700;margin-top:6px;font-variant-numeric:tabular-nums">₦263,500</div>
+        <div style="margin-top:12px;display:flex;flex-direction:column;gap:8px">
+          <div class="row"><span>Settled, can withdraw</span><strong>₦215,000</strong></div>
+          <div class="row"><span>Settling from NAHCO sale<div class="muted" style="font-size:12px">lands Thu 9 Oct</div></span><strong>₦48,500</strong></div>
+          <div class="row"><span>Reserved for open buy orders</span><strong>₦97,000</strong></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:10px">
+          <div>
+            <h2 style="margin:0;font-size:17px;font-weight:600">Idle cash earns</h2>
+            <div class="muted" style="font-size:13px;margin-top:2px">Settled cash sweeps into a partner money market fund each evening and comes back when you trade. Current yield 18.2%.</div>
+          </div>
+          <span class="pill" style="background:#EEF2F6;color:#5B6B7F;white-space:nowrap">Phase 2</span>
+        </div>
+        <div class="row" style="margin-top:12px"><span>Sweep on</span><button class="sw" type="button" aria-label="Turn on sweep"><span></span></button></div>
+      </div>
+
+      <div class="card">
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:10px">
+          <h2 style="margin:0;font-size:17px;font-weight:600">Recurring investments</h2>
+          <span class="pill" style="background:#EEF2F6;color:#5B6B7F">Phase 2</span>
+        </div>
+        <div style="margin-top:12px;display:flex;flex-direction:column;gap:8px">
+          <div class="row"><span><strong>₦50,000</strong> into STANBICETF30<div class="muted" style="font-size:12px">28th monthly · NIBSS direct debit from GTBank ••4417</div></span><button class="sw on" type="button" aria-label="Pause"><span></span></button></div>
+          <div class="row"><span><strong>₦20,000</strong> into FGN Savings Bond<div class="muted" style="font-size:12px">each monthly window</div></span><button class="sw on" type="button" aria-label="Pause"><span></span></button></div>
+        </div>
+        <a href="#add" style="font-size:13px;display:inline-block;margin-top:10px">Add a plan</a>
+      </div>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:20px">
+      <div class="card">
+        <h2 style="margin:0;font-size:17px;font-weight:600">Security</h2>
+        <div style="margin-top:12px;display:flex;flex-direction:column;gap:8px">
+          <div class="row"><span>Fingerprint or face to open</span><button class="sw on" type="button" aria-label="Biometric on"><span></span></button></div>
+          <div class="row"><span>PIN for every trade and withdrawal</span><span class="pill" style="background:#DCEFE4;color:#1F7A4D">Always on</span></div>
+          <div class="row"><span>Trusted devices<div class="muted" style="font-size:12px">MacBook Pro (this device), Pixel 8</div></span><a href="#dev" style="font-size:12px">Manage</a></div>
+          <div class="row"><span>Log out after 10 minutes idle</span><button class="sw on" type="button" aria-label="Timeout on"><span></span></button></div>
+          <div class="row" style="background:#FDE2E0"><span style="color:#B3261E;font-weight:600">Freeze my account now</span><span class="pill" style="background:#fff;color:#5B6B7F">Phase 2</span></div>
+        </div>
+      </div>
+
+      <div class="card" style="padding:0;overflow:hidden">
+        <div style="padding:18px 20px 10px"><h2 style="margin:0;font-size:17px;font-weight:600">Cash activity</h2></div>
+        <div style="overflow-x:auto">
+        <table class="tbl">
+          <thead><tr><th>Date</th><th>Activity</th><th class="num">Amount</th></tr></thead>
+          <tbody>
+            <tr><td>6 Oct</td><td>Sale proceeds, NAHCO (settling)</td><td class="num">+₦48,500</td></tr>
+            <tr><td>3 Oct</td><td>Bought GTCO</td><td class="num">-₦73,215</td></tr>
+            <tr><td>1 Oct</td><td>Transfer in from GTBank</td><td class="num">+₦200,000</td></tr>
+            <tr><td>29 Sep</td><td>Recovered dividend, Nestle (paid to GTBank)</td><td class="num muted">₦41,200 to bank</td></tr>
+            <tr><td>30 Sep</td><td>Vendii success fee (10%), NIBSS debit</td><td class="num muted">₦4,120 from bank</td></tr>
+          </tbody>
+        </table>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1180}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

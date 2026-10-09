@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Vendii Trading: Fixed income</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&amp;display=swap">
+<style>
+body{margin:0;font-family:'Space Grotesk',system-ui,sans-serif;color:#17375A;background:#F5F7FA}
+a{color:#295D8F;text-decoration:none}a:hover{color:#17375A}
+.nav a{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:8px;color:#D6E4F0;font-size:14px;font-weight:500}
+.nav a:hover{background:#1F4A75;color:#fff}
+.nav a.on{background:#295D8F;color:#fff}
+.card{background:#fff;border:1px solid #D9DEE5;border-radius:12px;padding:20px}
+.tbl{width:100%;border-collapse:collapse;font-size:14px}
+.tbl th{text-align:left;font-weight:500;color:#5B6B7F;padding:8px 12px;border-bottom:1px solid #D9DEE5;font-size:12px;letter-spacing:.03em;text-transform:uppercase}
+.tbl td{padding:12px;border-bottom:1px solid #EEF2F6;vertical-align:middle}
+.num{font-variant-numeric:tabular-nums;text-align:right}
+.muted{color:#5B6B7F}
+.pill{display:inline-block;padding:3px 10px;border-radius:999px;font-size:12px;font-weight:500;line-height:1.4}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 18px;border-radius:8px;font:inherit;font-weight:600;font-size:14px;cursor:pointer;border:1px solid transparent}
+.btn-p{background:#295D8F;color:#fff}.btn-p:hover{background:#1F4A75}
+.btn-g{background:#C59F56;color:#17375A}.btn-g:hover{background:#B08C45}
+.btn-o{background:#fff;color:#295D8F;border-color:#295D8F}.btn-o:hover{background:#EEF2F6}
+.inp{width:100%;box-sizing:border-box;height:46px;border:1px solid #D9DEE5;border-radius:8px;padding:0 14px;font:inherit;font-size:16px;color:#17375A;background:#fff}
+.lbl{display:block;font-size:12px;color:#5B6B7F;margin-bottom:6px;font-weight:500}
+.opt{flex:1;border:1px solid #D9DEE5;border-radius:10px;padding:14px;text-align:left;background:#fff;font:inherit;color:#17375A;cursor:pointer;min-height:44px}
+.opt.on{border-color:#17375A;background:#F5F7FA;box-shadow:inset 0 0 0 1px #17375A}
+.row{display:flex;justify-content:space-between;font-size:14px;padding:4px 0}
+</style>
+</helmet>
+
+<div style="display:flex;flex-wrap:wrap;min-height:1180px">
+
+<nav class="nav" style="flex:0 0 232px;background:#17375A;padding:24px 16px;display:flex;flex-direction:column;gap:4px;box-sizing:border-box">
+  <div style="display:flex;align-items:center;gap:10px;padding:4px 12px 24px">
+    <svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><circle cx="15" cy="15" r="15" fill="#C59F56"></circle><path d="M15 5 L19 15 L15 25 L11 15 Z" fill="#17375A"></path><circle cx="15" cy="15" r="2" fill="#C59F56"></circle></svg>
+    <span style="color:#fff;font-weight:700;font-size:20px">Vendii</span>
+  </div>
+  <a href="Main.dc.html">Home</a>
+  <a href="T-Stock.dc.html">Markets</a>
+  <a href="T-Orders.dc.html">Orders</a>
+  <a class="on" href="T-FixedIncome.dc.html">Fixed income</a>
+  <a href="T-Dividends.dc.html">Dividends</a>
+  <a href="T-Funding.dc.html">Funding</a>
+  <a href="/L-Start.dc.html">Borrow against shares</a>
+  <div style="flex:1 1 auto;min-height:120px"></div>
+  <div style="background:#1F4A75;border-radius:10px;padding:14px;color:#D6E4F0;font-size:12px;line-height:1.5">
+    <div style="color:#fff;font-weight:600;margin-bottom:4px">Your shares, your name</div>
+    Held at CSCS under CHN 2210045. Sponsoring broker: Trust Bank Securities.
+  </div>
+  <a href="#help" style="font-size:13px;margin-top:8px">Help centre</a>
+  <a href="#chat" style="font-size:13px">Talk to us</a>
+</nav>
+
+<main style="flex:999 1 560px;min-width:0;display:flex;flex-direction:column;box-sizing:border-box">
+  <div style="display:flex;flex-wrap:wrap;align-items:center;gap:16px;padding:16px 32px;background:#fff;border-bottom:1px solid #D9DEE5">
+    <h1 style="margin:0;font-size:22px;font-weight:600;flex:1 1 auto">Fixed income</h1>
+    <span class="muted" style="font-size:13px">Government-backed, tax-free coupons, from ₦5,000</span>
+  </div>
+
+  <div style="padding:28px 32px;display:flex;flex-direction:column;gap:20px">
+
+    <div style="display:grid;grid-template-columns:repeat(3, minmax(0, 1fr));gap:20px;align-items:start">
+      <div class="card" style="grid-column:span 2;background:#17375A;border-color:#17375A;color:#fff">
+        <div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px">
+          <div>
+            <div style="color:#C59F56;font-weight:600;font-size:13px">October 2026 window is open</div>
+            <h2 style="margin:6px 0 0;font-size:24px;font-weight:700">FGN Savings Bond</h2>
+            <div style="color:#D6E4F0;font-size:14px;margin-top:6px;max-width:520px">Issued monthly by the Debt Management Office and backed by the Federal Government. Interest is paid every quarter into your bank account; principal returns at maturity. ₦1,000 per unit, minimum ₦5,000, maximum ₦50m.</div>
+          </div>
+          <div style="text-align:right">
+            <div style="font-size:13px;color:#D6E4F0">Closes in</div>
+            <div style="font-size:34px;font-weight:700;font-variant-numeric:tabular-nums">2 days 6 hrs</div>
+            <div style="font-size:13px;color:#D6E4F0">Fri 9 Oct, 5pm · Settles Wed 14 Oct</div>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(2, minmax(0, 1fr));gap:14px;margin-top:20px">
+          <div style="background:#1F4A75;border-radius:10px;padding:16px">
+            <div style="font-size:13px;color:#D6E4F0">2-year bond</div>
+            <div style="font-size:30px;font-weight:700">14.319%</div>
+            <div style="font-size:13px;color:#D6E4F0">per year · matures 14 Oct 2028</div>
+          </div>
+          <div style="background:#1F4A75;border-radius:10px;padding:16px">
+            <div style="font-size:13px;color:#D6E4F0">3-year bond</div>
+            <div style="font-size:30px;font-weight:700">15.319%</div>
+            <div style="font-size:13px;color:#D6E4F0">per year · matures 14 Oct 2029</div>
+          </div>
+        </div>
+        <div style="margin-top:16px;font-size:13px;color:#D6E4F0">Rates are set by the DMO each month. Sample figures shown. <a href="#explain" style="color:#C59F56">How does a savings bond compare to a fixed deposit?</a></div>
+      </div>
+
+      <div class="card">
+        <h2 style="margin:0;font-size:17px;font-weight:600">Subscribe</h2>
+        <div style="margin-top:14px">
+          <span class="lbl">Tenor</span>
+          <div style="display:flex;gap:10px">
+            <button type="button" class="{{twoCls}}" onClick="{{pick2}}"><div style="font-weight:700;font-size:16px">2 years</div><div class="muted" style="font-size:12px">14.319%</div></button>
+            <button type="button" class="{{threeCls}}" onClick="{{pick3}}"><div style="font-weight:700;font-size:16px">3 years</div><div class="muted" style="font-size:12px">15.319%</div></button>
+          </div>
+        </div>
+        <div style="margin-top:14px">
+          <label class="lbl" for="amt">Amount (multiples of ₦1,000, from ₦5,000)</label>
+          <input id="amt" class="inp" type="number" step="1000" min="5000" value="{{amount}}" onInput="{{setAmount}}">
+          <sc-if value="{{badAmt}}" hint-placeholder-val="{{ false }}">
+            <div style="margin-top:8px;padding:8px 12px;background:#FFF1D6;color:#8A5A00;border-radius:8px;font-size:13px">Enter at least ₦5,000 in multiples of ₦1,000.</div>
+          </sc-if>
+        </div>
+        <div style="margin-top:16px;padding:14px;background:#F5F7FA;border-radius:10px">
+          <div class="row"><span class="muted">Units</span><span class="num">{{unitsFmt}}</span></div>
+          <div class="row"><span class="muted">Every quarter you receive</span><span class="num" style="font-weight:700">₦{{quarterFmt}}</span></div>
+          <div class="row"><span class="muted">First coupon</span><span class="num">14 Jan 2027</span></div>
+          <div class="row"><span class="muted">Total interest over the term</span><span class="num">₦{{totalIntFmt}}</span></div>
+          <div class="row"><span class="muted">Fees</span><span class="num">None</span></div>
+          <div class="row" style="border-top:1px solid #D9DEE5;margin-top:6px;padding-top:10px;font-weight:700"><span>You pay on 14 Oct</span><span class="num">₦{{amountFmt}}</span></div>
+        </div>
+        <div class="muted" style="font-size:12px;margin-top:10px">Coupons are tax free and land in your bank account. You can sell before maturity on the exchange, though buyers can take time to find.</div>
+        <button class="btn btn-g" type="button" style="width:100%;margin-top:14px;min-height:50px;font-size:16px">Subscribe ₦{{amountFmt}}</button>
+      </div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(2, minmax(0, 1fr));gap:20px">
+      <div class="card" style="padding:0;overflow:hidden">
+        <div style="padding:18px 20px 10px;display:flex;justify-content:space-between;align-items:center">
+          <h2 style="margin:0;font-size:17px;font-weight:600">Your fixed income</h2>
+          <span class="muted" style="font-size:13px">₦300,000 invested</span>
+        </div>
+        <div style="overflow-x:auto">
+        <table class="tbl">
+          <thead><tr><th>Instrument</th><th class="num">Units</th><th class="num">Rate</th><th>Next coupon</th><th>Matures</th></tr></thead>
+          <tbody>
+            <tr><td><strong>FGN Savings Bond</strong><div class="muted" style="font-size:12px">Sep 2026 issue, 3 year</div></td><td class="num">300</td><td class="num">15.12%</td><td>16 Dec · ₦11,340</td><td>16 Sep 2029</td></tr>
+          </tbody>
+        </table>
+        </div>
+        <div style="padding:14px 20px;display:flex;justify-content:space-between;align-items:center;font-size:14px;background:#F5F7FA">
+          <span>Coupon calendar and 12-month income projection</span>
+          <span class="pill" style="background:#EEF2F6;color:#5B6B7F">Phase 2</span>
+        </div>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:20px">
+        <div class="card">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:12px">
+            <div>
+              <h2 style="margin:0;font-size:17px;font-weight:600">Treasury bills</h2>
+              <div class="muted" style="font-size:14px;margin-top:4px">Direct T-bill auctions need over ₦50m. Vendii pools smaller amounts through a partner fund so you earn T-bill yields from ₦10,000.</div>
+            </div>
+            <span class="pill" style="background:#EEF2F6;color:#5B6B7F;white-space:nowrap">Phase 2</span>
+          </div>
+        </div>
+        <div class="card">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:12px">
+            <div>
+              <h2 style="margin:0;font-size:17px;font-weight:600">Listed FGN bonds, secondary market</h2>
+              <div class="muted" style="font-size:14px;margin-top:4px">Buy bonds already issued, at today's yield, with a built-in yield and accrued interest calculator.</div>
+            </div>
+            <span class="pill" style="background:#EEF2F6;color:#5B6B7F;white-space:nowrap">Phase 2</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1180}}'>
+class Component extends DCLogic {
+  constructor(p){ super(p); this.state = { tenor:3, amount:100000 }; }
+  fmt(n){ return Math.round(n).toLocaleString('en-NG'); }
+  renderVals(){
+    const s=this.state, rate = s.tenor===2 ? 0.14319 : 0.15319;
+    const amt = Number(s.amount)||0;
+    const bad = amt<5000 || amt%1000!==0;
+    const units = Math.floor(amt/1000);
+    return {
+      twoCls: 'opt'+(s.tenor===2?' on':''), threeCls: 'opt'+(s.tenor===3?' on':''),
+      pick2: ()=>this.setState({tenor:2}), pick3: ()=>this.setState({tenor:3}),
+      amount: s.amount, badAmt: bad, unitsFmt: this.fmt(units), amountFmt: this.fmt(amt),
+      quarterFmt: this.fmt(amt*rate/4), totalIntFmt: this.fmt(amt*rate*s.tenor),
+      setAmount: (e)=>this.setState({amount:e.target.value})
+    };
+  }
+}
+</script>
+</body>
+</html>

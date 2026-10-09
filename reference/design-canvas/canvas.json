@@ -1,0 +1,38 @@
+{
+  "v": 3,
+  "createdOnFiles": {"v": 1, "at": "2026-10-07T12:00:00Z"},
+  "title": "Vendii desktop UI: Trading and Lending",
+  "launch": {"view": "canvas", "page": "trading"},
+  "pages": [
+    {"id": "trading", "name": "Trading app"},
+    {"id": "lending", "name": "Lending app"}
+  ],
+  "boards": {
+    "Main.dc.html": {"x": 0, "y": 0, "w": 1440, "h": 1180, "title": "01 Home: portfolio", "page": "trading", "expand": "fill", "is_interactive": true},
+    "T-Stock.dc.html": {"x": 1520, "y": 0, "w": 1440, "h": 1180, "title": "02 Stock page + order ticket", "page": "trading", "expand": "fill", "is_interactive": true},
+    "T-Orders.dc.html": {"x": 3040, "y": 0, "w": 1440, "h": 1180, "title": "03 Orders and activity", "page": "trading", "expand": "fill", "is_interactive": true},
+    "T-FixedIncome.dc.html": {"x": 4560, "y": 0, "w": 1440, "h": 1180, "title": "04 Fixed income", "page": "trading", "expand": "fill", "is_interactive": true},
+    "T-Dividends.dc.html": {"x": 0, "y": 1300, "w": 1440, "h": 1180, "title": "05 Dividends and recovery", "page": "trading", "expand": "fill", "is_interactive": true},
+    "T-Funding.dc.html": {"x": 1520, "y": 1300, "w": 1440, "h": 1180, "title": "06 Funding and withdrawals", "page": "trading", "expand": "fill", "is_interactive": true},
+    "T-Onboarding.dc.html": {"x": 3040, "y": 1300, "w": 1440, "h": 1180, "title": "07 Onboarding wizard", "page": "trading", "expand": "fill", "is_interactive": true},
+    "L-Start.dc.html": {"x": 0, "y": 0, "w": 1440, "h": 1180, "title": "01 Check what you can borrow", "page": "lending", "expand": "fill", "is_interactive": true},
+    "L-Build.dc.html": {"x": 1520, "y": 0, "w": 1440, "h": 1180, "title": "02 Build your loan", "page": "lending", "expand": "fill", "is_interactive": true},
+    "L-Review.dc.html": {"x": 3040, "y": 0, "w": 1440, "h": 1180, "title": "03 Review, consent and sign", "page": "lending", "expand": "fill", "is_interactive": true},
+    "L-Dashboard.dc.html": {"x": 0, "y": 1300, "w": 1440, "h": 1180, "title": "04 Loan dashboard", "page": "lending", "expand": "fill", "is_interactive": true},
+    "L-MarginCall.dc.html": {"x": 1520, "y": 1300, "w": 1440, "h": 1180, "title": "05 Margin call state", "page": "lending", "expand": "fill", "is_interactive": true},
+    "L-LenderConsole.dc.html": {"x": 3040, "y": 1300, "w": 1440, "h": 1180, "title": "06 Lender console (Trust Bank)", "page": "lending", "expand": "fill", "is_interactive": true}
+  },
+  "order": [
+    "Main.dc.html", "T-Stock.dc.html", "T-Orders.dc.html", "T-FixedIncome.dc.html",
+    "T-Dividends.dc.html", "T-Funding.dc.html", "T-Onboarding.dc.html",
+    "L-Start.dc.html", "L-Build.dc.html", "L-Review.dc.html",
+    "L-Dashboard.dc.html", "L-MarginCall.dc.html", "L-LenderConsole.dc.html"
+  ],
+  "notes": {
+    "t-title": {"x": 0, "y": -320, "text": "Vendii Trading, desktop. 7 screens, 98 approved features", "kind": "title1", "maxW": 4400, "page": "trading"},
+    "t-note": {"x": 4600, "y": -330, "w": 560, "maxH": 110, "text": "All prices, balances and dates are sample data for layout. Sidebar links move between screens in Play.", "fill": "blue", "page": "trading"},
+    "l-title": {"x": 0, "y": -320, "text": "Vendii Lending, desktop. 6 screens, 56 approved features", "kind": "title1", "maxW": 4400, "page": "lending"},
+    "l-note": {"x": 4600, "y": -330, "w": 560, "maxH": 110, "text": "Non-purpose loan booked by Trust Bank, Vendii originates. Figures are sample data.", "fill": "blue", "page": "lending"}
+  },
+  "designSystems": []
+}

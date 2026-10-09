@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Vendii Borrow: What you can borrow</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&amp;display=swap">
+<style>
+body{margin:0;font-family:'Space Grotesk',system-ui,sans-serif;color:#17375A;background:#F5F7FA}
+a{color:#295D8F;text-decoration:none}a:hover{color:#17375A}
+.nav a{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:8px;color:#D6E4F0;font-size:14px;font-weight:500}
+.nav a:hover{background:#1F4A75;color:#fff}
+.nav a.on{background:#295D8F;color:#fff}
+.card{background:#fff;border:1px solid #D9DEE5;border-radius:12px;padding:20px}
+.tbl{width:100%;border-collapse:collapse;font-size:14px}
+.tbl th{text-align:left;font-weight:500;color:#5B6B7F;padding:8px 12px;border-bottom:1px solid #D9DEE5;font-size:12px;letter-spacing:.03em;text-transform:uppercase}
+.tbl td{padding:12px;border-bottom:1px solid #EEF2F6;vertical-align:middle}
+.num{font-variant-numeric:tabular-nums;text-align:right}
+.muted{color:#5B6B7F}
+.pill{display:inline-block;padding:3px 10px;border-radius:999px;font-size:12px;font-weight:500;line-height:1.4}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 18px;border-radius:8px;font:inherit;font-weight:600;font-size:14px;cursor:pointer;border:1px solid transparent}
+.btn-p{background:#295D8F;color:#fff}.btn-p:hover{background:#1F4A75}
+.btn-g{background:#C59F56;color:#17375A}.btn-g:hover{background:#B08C45}
+.btn-o{background:#fff;color:#295D8F;border-color:#295D8F}.btn-o:hover{background:#EEF2F6}
+.inp{width:100%;box-sizing:border-box;height:46px;border:1px solid #D9DEE5;border-radius:8px;padding:0 14px;font:inherit;font-size:16px;color:#17375A;background:#fff}
+.lbl{display:block;font-size:12px;color:#5B6B7F;margin-bottom:6px;font-weight:500}
+.opt{flex:1;border:1px solid #D9DEE5;border-radius:10px;padding:16px;text-align:left;background:#fff;font:inherit;color:#17375A;cursor:pointer;min-height:44px}
+.opt.on{border-color:#17375A;background:#F5F7FA;box-shadow:inset 0 0 0 1px #17375A}
+.row{display:flex;justify-content:space-between;font-size:14px;padding:4px 0}
+</style>
+</helmet>
+
+<div style="display:flex;flex-wrap:wrap;min-height:1180px">
+
+<nav class="nav" style="flex:0 0 232px;background:#17375A;padding:24px 16px;display:flex;flex-direction:column;gap:4px;box-sizing:border-box">
+  <div style="display:flex;align-items:center;gap:10px;padding:4px 12px 24px">
+    <svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><circle cx="15" cy="15" r="15" fill="#C59F56"></circle><path d="M15 5 L19 15 L15 25 L11 15 Z" fill="#17375A"></path><circle cx="15" cy="15" r="2" fill="#C59F56"></circle></svg>
+    <span style="color:#fff;font-weight:700;font-size:20px">Vendii <span style="color:#C59F56">Borrow</span></span>
+  </div>
+  <a class="on" href="L-Start.dc.html">Check what you can borrow</a>
+  <a href="L-Build.dc.html">Build your loan</a>
+  <a href="L-Review.dc.html">Review and sign</a>
+  <a href="L-Dashboard.dc.html">My loan</a>
+  <a href="L-MarginCall.dc.html">Alert state (demo)</a>
+  <a href="L-LenderConsole.dc.html">Lender console</a>
+  <div style="flex:1 1 auto;min-height:120px"></div>
+  <div style="background:#1F4A75;border-radius:10px;padding:14px;color:#D6E4F0;font-size:12px;line-height:1.5">
+    <div style="color:#fff;font-weight:600;margin-bottom:4px">Who lends</div>
+    Loans are provided by Trust Bank. Vendii arranges them. Your shares stay in your name at CSCS with a lien in the bank's favour until you repay.
+  </div>
+  <a href="/Main.dc.html" style="font-size:13px;margin-top:8px">Back to Vendii Trading</a>
+  <a href="#chat" style="font-size:13px">Talk to us</a>
+</nav>
+
+<main style="flex:999 1 560px;min-width:0;display:flex;flex-direction:column;box-sizing:border-box">
+  <div style="display:flex;flex-wrap:wrap;align-items:center;gap:16px;padding:16px 32px;background:#fff;border-bottom:1px solid #D9DEE5">
+    <h1 style="margin:0;font-size:22px;font-weight:600;flex:1 1 auto">Borrow against your shares, without selling them</h1>
+    <span class="muted" style="font-size:13px">Checking your limit doesn't touch your credit file</span>
+  </div>
+
+  <div style="padding:28px 32px;display:grid;grid-template-columns:repeat(3, minmax(0, 1fr));gap:20px;align-items:start">
+
+    <div style="grid-column:span 2;display:flex;flex-direction:column;gap:20px;min-width:0">
+
+      <div class="card">
+        <h2 style="margin:0;font-size:17px;font-weight:600">Where are your shares?</h2>
+        <div style="display:flex;gap:12px;margin-top:14px;flex-wrap:wrap">
+          <button type="button" class="{{vCls}}" onClick="{{pickV}}">
+            <div style="font-weight:600">In my Vendii account</div>
+            <div class="muted" style="font-size:13px;margin-top:4px">CHN 2210045 · 6 holdings · we already know them</div>
+          </button>
+          <button type="button" class="{{oCls}}" onClick="{{pickO}}">
+            <div style="font-weight:600;display:flex;gap:8px;align-items:center">With another broker <span class="pill" style="background:#C59F56;color:#17375A">Only on Vendii</span></div>
+            <div class="muted" style="font-size:13px;margin-top:4px">Any CSCS account. Enter your CHN; CSCS sends you a code to confirm.</div>
+          </button>
+          <button type="button" class="opt" style="opacity:.75">
+            <div style="font-weight:600;display:flex;gap:8px;align-items:center">Old share certificates <span class="pill" style="background:#EEF2F6;color:#5B6B7F">Phase 3</span></div>
+            <div class="muted" style="font-size:13px;margin-top:4px">We move them into CSCS first, then you can borrow against them.</div>
+          </button>
+        </div>
+
+        <sc-if value="{{other}}" hint-placeholder-val="{{ false }}">
+          <div style="margin-top:16px;display:grid;grid-template-columns:repeat(2, minmax(0, 1fr));gap:16px;align-items:end">
+            <div><label class="lbl" for="chn">Your CHN at the other broker</label><input id="chn" class="inp" type="text" placeholder="e.g. 1845023"></div>
+            <button class="btn btn-p" type="button">Send CSCS code</button>
+          </div>
+          <div class="muted" style="font-size:12px;margin-top:8px">We read your holdings only. Nothing moves and your broker relationship doesn't change.</div>
+        </sc-if>
+      </div>
+
+      <div class="card" style="padding:0;overflow:hidden">
+        <div style="padding:18px 20px 10px;display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap">
+          <div>
+            <h2 style="margin:0;font-size:17px;font-weight:600">Your eligible shares</h2>
+            <div class="muted" style="font-size:13px;margin-top:4px">Each stock has an advance rate: how much of its value you can borrow. Liquid, large companies get more. We value shares at the lower of today's price and the 30-day average, so a one-day spike doesn't inflate your limit.</div>
+          </div>
+          <a href="#list" style="font-size:13px;white-space:nowrap">Full eligible securities list</a>
+        </div>
+        <div style="overflow-x:auto">
+        <table class="tbl">
+          <thead><tr><th>Security</th><th class="num">Units</th><th class="num">Valuation used</th><th>Liquidity</th><th class="num">Advance rate</th><th class="num">You can borrow</th></tr></thead>
+          <tbody>
+            <tr><td><strong>MTNN</strong><div class="muted" style="font-size:12px">MTN Nigeria</div></td><td class="num">3,500</td><td class="num">₦261.00</td><td><span class="pill" style="background:#DCEFE4;color:#1F7A4D">High</span></td><td class="num">55%</td><td class="num"><strong>₦502,425</strong></td></tr>
+            <tr><td><strong>DANGCEM</strong><div class="muted" style="font-size:12px">Dangote Cement</div></td><td class="num">2,200</td><td class="num">₦466.00</td><td><span class="pill" style="background:#FFF1D6;color:#8A5A00">Medium</span></td><td class="num">45%</td><td class="num"><strong>₦461,340</strong></td></tr>
+            <tr><td><strong>GTCO</strong><div class="muted" style="font-size:12px">Bank share: allowed for a non-purpose loan</div></td><td class="num">9,000</td><td class="num">₦70.20</td><td><span class="pill" style="background:#DCEFE4;color:#1F7A4D">High</span></td><td class="num">50%</td><td class="num"><strong>₦315,900</strong></td></tr>
+            <tr><td><strong>ZENITHBANK</strong><div class="muted" style="font-size:12px">Bank share: allowed for a non-purpose loan</div></td><td class="num">12,000</td><td class="num">₦47.10</td><td><span class="pill" style="background:#DCEFE4;color:#1F7A4D">High</span></td><td class="num">50%</td><td class="num"><strong>₦282,600</strong></td></tr>
+            <tr><td><strong>STANBICETF30</strong><div class="muted" style="font-size:12px">ETF</div></td><td class="num">4,000</td><td class="num">₦176.00</td><td><span class="pill" style="background:#FFF1D6;color:#8A5A00">Medium</span></td><td class="num">45%</td><td class="num"><strong>₦316,800</strong></td></tr>
+            <tr style="color:#5B6B7F"><td><strong>NAHCO</strong><div style="font-size:12px">Trades too thinly to sell quickly in a fall</div></td><td class="num">8,000</td><td class="num">₦78.40</td><td><span class="pill" style="background:#F2F2F2;color:#5B6B7F">Thin</span></td><td class="num">0%</td><td class="num">Not eligible</td></tr>
+            <tr style="color:#5B6B7F"><td><strong>FGN Savings Bond</strong><div style="font-size:12px">Bonds and fund units as collateral</div></td><td class="num">300</td><td class="num">₦1,000</td><td><span class="pill" style="background:#EEF2F6;color:#5B6B7F">Phase 2</span></td><td class="num">up to 80%</td><td class="num">Coming</td></tr>
+          </tbody>
+        </table>
+        </div>
+        <div style="padding:14px 20px;background:#F5F7FA;font-size:13px" class="muted">No single stock may back more than 40% of your loan. Advance rates can change if a stock's liquidity changes; we tell you 5 working days before.</div>
+      </div>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:20px">
+      <div class="card" style="background:#17375A;border-color:#17375A;color:#fff">
+        <div style="font-size:13px;color:#C59F56;font-weight:600">You can borrow up to</div>
+        <div style="font-size:40px;font-weight:700;margin-top:4px;font-variant-numeric:tabular-nums">₦1,879,000</div>
+        <div style="font-size:13px;color:#D6E4F0;margin-top:4px">against ₦3,927,180 of eligible shares. Figure updates each trading day.</div>
+        <div style="margin-top:16px;border-top:1px solid #2F5F8A;padding-top:14px;display:flex;flex-direction:column;gap:8px;font-size:14px">
+          <div class="row"><span style="color:#D6E4F0">Interest from</span><span>24% a year</span></div>
+          <div class="row"><span style="color:#D6E4F0">Tenor</span><span>3 to 12 months</span></div>
+          <div class="row"><span style="color:#D6E4F0">Arrangement fee</span><span>1% once</span></div>
+          <div class="row"><span style="color:#D6E4F0">Early repayment</span><span>No charge</span></div>
+          <div class="row"><span style="color:#D6E4F0">Dividends while pledged</span><span>Still yours</span></div>
+        </div>
+        <a class="btn btn-g" href="L-Build.dc.html" style="width:100%;box-sizing:border-box;margin-top:18px;min-height:50px;font-size:16px">Build my loan</a>
+        <div style="font-size:12px;color:#D6E4F0;margin-top:10px;text-align:center">Takes about 5 minutes. Money lands the same working day.</div>
+      </div>
+
+      <div class="card">
+        <h2 style="margin:0;font-size:15px;font-weight:600">What you don't need</h2>
+        <ul style="margin:10px 0 0;padding-left:18px;font-size:14px;line-height:1.7">
+          <li>No salary slip or bank statements</li>
+          <li>No guarantor</li>
+          <li>No visit to a branch</li>
+          <li>No selling your shares and missing the next dividend</li>
+        </ul>
+        <div class="muted" style="font-size:12px;margin-top:10px">The bank runs a credit bureau check at the signing step, with your consent.</div>
+      </div>
+
+      <div class="card">
+        <h2 style="margin:0;font-size:15px;font-weight:600">The one thing to understand</h2>
+        <div style="font-size:14px;margin-top:8px;line-height:1.6">If your shares fall, the loan takes up a bigger share of their value. At a set point we ask you to add money or shares. If you don't, some shares are sold. We show that point on every screen and warn you three times before it. <a href="#learn">How margin calls work, with a ₦ example</a></div>
+      </div>
+    </div>
+
+  </div>
+</main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1180}}'>
+class Component extends DCLogic {
+  constructor(p){ super(p); this.state = { src:'vendii' }; }
+  renderVals(){
+    const s=this.state;
+    return {
+      vCls:'opt'+(s.src==='vendii'?' on':''), oCls:'opt'+(s.src==='other'?' on':''),
+      other: s.src==='other',
+      pickV:()=>this.setState({src:'vendii'}), pickO:()=>this.setState({src:'other'})
+    };
+  }
+}
+</script>
+</body>
+</html>
